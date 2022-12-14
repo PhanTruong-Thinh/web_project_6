@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Đơn Hàng</title>
+  <title>Người Dùng</title>
   <link href="css_admin/bootstrap.min.css" rel="stylesheet">
   <link href="css_admin/font-awesome.min.css" rel="stylesheet">
   <link href="css_admin/datepicker3.css" rel="stylesheet">
@@ -99,11 +99,11 @@
       </div>
     </form>
     <ul class="nav menu">
-      <li><a href="admin.html"><em class="fa fa-dashboard">&nbsp;</em> Bảng Điều Khiển</a></li>
+      <li ><a href="admin.html"><em class="fa fa-dashboard">&nbsp;</em> Bảng Điều Khiển</a></li>
       <li><a href="widgets_admin.html"><em class="fa fa-calendar">&nbsp;</em> Quản Lý</a></li>
       <li><a href="charts_admin.html"><em class="fa fa-bar-chart">&nbsp;</em> Biểu Đồ</a></li>
       <li><a href="elements_admin.html"><em class="fa fa-toggle-off">&nbsp;</em> Giao Diện</a></li>
-      <li class="active"><a href="order_admin.html"><em class="fa fa-clipboard">&nbsp;</em> Đơn Hàng</a></li>
+      <li><a href="order_admin.html"><em class="fa fa-clipboard">&nbsp;</em> Đơn Hàng</a></li>
       <li class="parent-1 "><a data-toggle="collapse" href="#sub-item-2">
         <em class="fa fa-list">&nbsp;</em> Quản Lý Danh Mục <span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="fa fa-list-alt"></em></span>
       </a>
@@ -119,34 +119,36 @@
 
       <li><a href="panels_admin.html"><em class="fa fa-clone">&nbsp;</em> Cảnh Báo</a></li>
 
-      <li class="parent "><a data-toggle="collapse" href="#sub-item-1">
+      <li v class="parent "><a class="active" data-toggle="collapse" href="#sub-item-1">
         <em class="fa fa-user-circle">&nbsp;</em> Thành Viên <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
       </a>
         <ul class="children collapse" id="sub-item-1">
           <li><a class="" href="Administrators.html">
-            <span class="">&nbsp;</span> Người Quản Trị
+            <span class="">&nbsp;</span> Quản Trị Viên
           </a></li>
-          <li><a class="" href="User_Public.html">
+          <li class="active"><a class="active" href="User_Public.html">
             <span class="">&nbsp;</span> Người Dùng
           </a></li>
+
         </ul>
       </li>
       <li><a href="login_admin.html"><em class="fa fa-power-off">&nbsp;</em> Đăng Xuất</a></li>
     </ul>
   </div>
+
   <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
     <div class="row">
       <ol class="breadcrumb">
         <li><a href="#">
           <em class="fa fa-home"></em>
         </a></li>
-        <li class="active"> Đơn Đặt Hàng</li>
+        <li class="active"> Thành Viên</li>
       </ol>
     </div><!--/.row-->
 
     <div class="row">
       <div class="col-lg-12">
-        <h1 class="page-header"> Đơn Đặt Hàng</h1>
+        <h1 class="page-header"> Người Dùng</h1>
       </div>
     </div><!--/.row-->
 
@@ -154,37 +156,37 @@
       <div class="row">
         <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
           <div class="panel panel-teal panel-widget border-right">
-            <div class="row no-padding"><em class="fa fa-xl  fa-dropbox color-blue"></em>
+            <div class="row no-padding"><em class="fa fa-xl fa-users color-blue"></em>
               <div class="large">0</div>
-              <div class="text-muted">Tổng Số Đơn Hàng</div>
+              <div class="text-muted">Tổng Số Người Dùng</div>
             </div>
           </div>
         </div>
         <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
           <div class="panel panel-blue panel-widget border-right">
-            <div class="row no-padding"><em class="fa fa-xl fa-check color-orange"></em>
+            <div class="row no-padding"><em class="fa fa-xl fa-users color-orange"></em>
               <div class="large">0</div>
-              <div class="text-muted">Đã Hoàn Thành</div>
+              <div class="text-muted">Đang Đăng Nhập</div>
             </div>
           </div>
         </div>
         <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
           <div class="panel panel-orange panel-widget border-right">
-            <div class="row no-padding"><em class="fa fa-xl fa-clipboard color-teal"></em>
+            <div class="row no-padding"><em class="fa fa-xl fa-users color-teal"></em>
               <div class="large">0</div>
-              <div class="text-muted">Đơn Hàng Mới</div>
+              <div class="text-muted">Người Dùng Mới</div>
             </div>
           </div>
         </div>
-                <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
-                  <div class="panel panel-red panel-widget ">
-                    <div class="row no-padding"><em class="fa fa-xl fa-truck color-red"></em>
-                      <div class="large">0</div>
-                      <div class="text-muted">Đang Vận Chuyển</div>
-                    </div>
-                  </div>
-                </div>
-      </div>
+<!--        <div class="col-xs-6 col-md-3 col-lg-3 no-padding">-->
+<!--          <div class="panel panel-red panel-widget ">-->
+<!--            <div class="row no-padding"><em class="fa fa-xl fa-search color-red"></em>-->
+<!--              <div class="large">0</div>-->
+<!--              <div class="text-muted">Lượt Xem</div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+      </div><!--/.row-->
 
 
 
@@ -194,7 +196,7 @@
       <div class="col-md-6 col-md-20">
         <div class="panel panel-default chat">
           <div class="panel-heading">
-            Danh sách đơn đơn hàng
+            Tài Khoản Người Dùng
           </div>
           <div class="panel-footer nemu-user">
             <div class="input-group">
@@ -204,48 +206,11 @@
           </div>
           <div class="select">
             <select class="select-user">
+              <option>Lọc</option>
               <option>Tự động</option>
-              <option>Mới nhất</option>
               <option>Từ A-Z</option>
               <option>Từ Z-A</option>
             </select>
-
-            <select class="select-user">
-              <option value="">--tháng--</option>
-              <option value="">Tháng 1</option>
-              <option value="">Tháng 2</option>
-              <option value="">Tháng 3</option>
-              <option value="">Tháng 4</option>
-              <option value="">Tháng 5</option>
-              <option value="">Tháng 6</option>
-              <option value="">Tháng 7</option>
-              <option value="">Tháng 8</option>
-              <option value="">Tháng 9</option>
-              <option value="">Tháng 10</option>
-              <option value="">Tháng 11</option>
-              <option value="">Tháng 12</option>
-            </select>
-            <select class="select-user">
-              <option value="">--năm--</option>
-              <option value="">2022</option>
-              <option value="">2023</option>
-              <option value="">2024</option>
-              <option value="">2025</option>
-              <option value="">2026</option>
-              <option value="">2027</option>
-              <option value="">2028</option>
-              <option value="">2029</option>
-              <option value="">2030</option>
-              <option value="">2031</option>
-              <option value="">2032</option>
-              <option value="">2033</option>
-            </select>
-            <button class="buton-admin" type="button">Xóa</button>
-            <button class="buton-admin" type="button">Chỉnh sửa</button>
-
-            <label class="lab label-1">Số đơn hàng: <span class="label label-info">0</span></label>
-            <label class="label-1">Đơn mới: <span class="label label-info">0</span></label>
-            <label class="label-1">Đang giao hàng: <span class="label label-info">0</span></label>
           </div>
           <div class="table-a">
             <table class="table-user">
@@ -253,26 +218,22 @@
                 <th class="row-1">
                   <input type="checkbox">
                 </th>
-                <th class="row-order-1">Mã đơn hàng</th>
-                <th class="row-order-2 row-cols-2"> Mã khách hàng</th>
-                <th class="row-order-3 row-cols-3"> Tên</th>
-                <th class="row-order-4 row-cols-4">Số điện thoại</th>
-                <th class="row-order-5 row-cols-5">Ngày đặt hàng</th>
-                <th class="row-order-6">Địa chỉ</th>
-                <th class="row-order-7 row-cols-6">Trạng thái</th>
-                <th class="row-order-8">Thông tin đơn hàng</th>
+                <th class="row-7" >Mã người dùng</th>
+                <th class="row-2 row-cols-2"> Tên</th>
+                <th class="row-3 row-cols-3"> Email</th>
+                <th class="row-4 row-cols-4">Số điện thoại</th>
+                <th class="row-5 row-cols-5">Ngày đăng ký</th>
+                <th class="row-6 row-cols-6">Lịch sử mua sắm</th>
               </tr>
               <tr class="boder-t">
                 <th class="row-1">
                   <input type="checkbox">
                 </th>
-                <td><a>HOT</a></td>
-                <td>US01</td>
-                <td>THINH</td>
-                <td>99XXXXXX999</td>
-                <td>14/12/2022</td>
-                <td>.........</td>
-                <td>đã giao</td>
+                <td>US002</td>
+                <td><a>Phan Trường Thịnh</a></td>
+                <td>Huuthinh19593@gmail.com</td>
+                <td>0923899472</td>
+                <td>13/12/2022</td>
                 <td><a>xem chi tiết</a></td>
               </tr>
             </table>
@@ -281,6 +242,7 @@
       </div>
     </div>
   </div>
+
   <script src="js/jquery-1.11.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/chart.min.js"></script>

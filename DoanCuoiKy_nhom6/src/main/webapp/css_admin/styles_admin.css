@@ -783,12 +783,12 @@ a.label:hover, a.label:focus {
 
   .navbar-header {
     width: 100%; } }
-.sidebar ul.nav a:hover, .sidebar ul.nav li.parent ul li a:hover {
+.sidebar ul.nav a:hover, .sidebar ul.nav li.parent ul li a:hover, .sidebar ul.nav li.parent-1 ul li a:hover {
   text-decoration: none;
   background-color: #30a5ff;
   color: #fff; }
 
-.sidebar ul.nav .active a, .sidebar ul.nav li.parent a.active, .sidebar ul.nav .active > a:hover, .sidebar ul.nav li.parent a.active:hover, .sidebar ul.nav .active > a:focus, .sidebar ul.nav li.parent a.active:focus {
+.sidebar ul.nav .active a, .sidebar ul.nav li.parent a.active, .sidebar ul.nav li.parent-1 ul li a:hover, .sidebar ul.nav .active > a:hover, .sidebar ul.nav li.parent a.active:hover, .sidebar ul.nav li.parent-1 a.active:hover, .sidebar ul.nav .active > a:focus, .sidebar ul.nav li.parent a.active:focus .sidebar ul.nav li.parent-1 a.active:focus {
   color: #fff;
   background-color: #30a5ff; }
 
@@ -817,7 +817,7 @@ a.label:hover, a.label:focus {
   background-color: #30a5ff;
   color: #fff !important; }
 
-.sidebar ul.nav li.parent ul li a {
+.sidebar ul.nav li.parent ul li a,.sidebar ul.nav li.parent-1 ul li a {
   border: none;
   display: block;
   padding-left: 30px;
@@ -952,8 +952,49 @@ h1.page-header {
 
 .panel-body input[type=checkbox]:checked + label {
   text-decoration: line-through;
-  color: #777; }
+  color: #777;
 
+}
+/*.row{*/
+/*  height: 300px;*/
+/*}*/
+/*.row .panel-body{*/
+/*  width: 100%;*/
+/*  margin-bottom: 30px;*/
+/*  background: #FFFFFF;*/
+
+/*}*/
+/*.row .panel-body .canvas-wrapper{*/
+/*  border-right: #c8cbcf solid 2px;*/
+/*  */
+/*}*/
+.row .panel-body .panel-tk{
+  margin-top: 20px;
+  width: 25%;
+ height: 100px;
+  text-align: center;
+  padding-top: 40px;
+  font-size: 36px;
+  float: left;
+
+}
+.row .panel-body .panel-tk-1{
+  margin-top: 20px;
+  padding-bottom: 5px;
+  width: 10%;
+  height: 100px;
+  padding-top: 30px;
+  text-align: center;
+  font-family: "Arial Black";
+  float: left;
+  font-size: 24px;
+}
+.row .panel-body .panel-tk-1 .tk-1{
+  color: #34ce57;
+}
+.row .panel-body .panel-tk-1 .tk-2{
+  color: red;
+}
 .todo-list-item {
   list-style: none;
   line-height: 0.9;
@@ -1046,15 +1087,60 @@ p.back-link {
   font-size: 18px;
   text-align: left;
 }
-/*.row .u-1{*/
-/*  float: left;*/
-/*}*/
-/*.row .u-2{*/
-/*  float: left;*/
-/*}*/
-/*.row .u-3{*/
-/*  float: left;*/
-/*}*/
-/*.row .u-4{*/
-/*  float: right;*/
-/*}*/
+
+.table-user  {
+  margin-left: 10px;
+  width: 98%;
+}
+.table-user .boder-t{
+  border: #b3b7bb solid 1px;
+}
+.table-user .row-1{
+  width: 20px;
+  padding: 5px;
+}
+.table-user .row-2,.table-user .row-3{
+  width: 450px;
+
+}
+.select .select-user{
+  margin-left: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  border: #b3b7bb solid 1px;
+}
+.table-user .boder-t a{
+  color: black;
+}
+.row .select .buton-admin{
+  color: black;
+  background: #b3b7bb;
+  width: 100px;
+  border-radius: 5px ;
+  border: #b3b7bb solid 1px;
+  background: #FFFFFF;
+}
+.table-user .row-order-1,.table-user .row-order-2 ,.table-user .row-order-4, .table-user .row-order-5{
+  border: black;
+  width: 150px;
+}
+.table-user .row-order-3{
+  width: 200px;
+}
+.table-user .row-order-6{
+  width: 500px;
+}
+.row .select .label-1{
+
+  margin-right: 30px;
+  float: right;
+}
+.table-user .row-pro-1{
+  width: 120px;
+}
+.table-user .row-pro-6, .table-user .row-pro-7, .table-user .row-pro-8{
+  width: 50px;
+}
+.table-user .row-pro-9,.table-user .row-pro-10, .table-user .row-pro-11{
+  width: 120px;
+}

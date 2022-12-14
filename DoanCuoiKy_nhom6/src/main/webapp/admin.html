@@ -104,25 +104,36 @@
 			<li><a href="charts_admin.html"><em class="fa fa-bar-chart">&nbsp;</em> Biểu Đồ</a></li>
 			<li><a href="elements_admin.html"><em class="fa fa-toggle-off">&nbsp;</em> Giao Diện</a></li>
 			<li><a href="order_admin.html"><em class="fa fa-clipboard">&nbsp;</em> Đơn Hàng</a></li>
-			<li><a href="product_admin.html"><em class="fa fa-product-hunt">&nbsp;</em> Sản Phẩm</a></li>
-			<li><a href="member_admin.html"><em class="fa fa-user-circle">&nbsp;</em> Thành Viên</a></li>
+			<li class="parent-1 "><a data-toggle="collapse" href="#sub-item-2">
+				<em class="fa fa-list">&nbsp;</em> Quản Lý Danh Mục <span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="fa fa-list-alt"></em></span>
+			</a>
+				<ul class="children collapse" id="sub-item-2">
+					<li><a class="" href="Category.html">
+						<span class=" ">&nbsp;</span> Danh Mục
+					</a></li>
+					<li><a class="" href="product_admin.html">
+						<span class=" ">&nbsp;</span> Sản Phẩm
+					</a></li>
+				</ul>
+			</li>
+
 			<li><a href="panels_admin.html"><em class="fa fa-clone">&nbsp;</em> Cảnh Báo</a></li>
 			<li class="parent "><a data-toggle="collapse" href="#sub-item-1">
 				<em class="fa fa-user-circle">&nbsp;</em> Thành Viên <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
 				</a>
 				<ul class="children collapse" id="sub-item-1">
-					<li><a class="" href="#">
-						<span class="fa fa-arrow-right">&nbsp;</span> Quản Trị Viên
+					<li><a class="" href="Administrators.html">
+						<span class="">&nbsp;</span> Quản Trị Viên
 					</a></li>
-					<li><a class="" href="#">
-						<span class="fa fa-arrow-right">&nbsp;</span> Người Dùng
+					<li><a class="" href="User_Public.html">
+						<span class="">&nbsp;</span> Người Dùng
 					</a></li>
 
 				</ul>
 			</li>
 			<li><a href="login_admin.html"><em class="fa fa-power-off">&nbsp;</em> Đăng Xuất</a></li>
 		</ul>
-	</div><!--/.sidebar-->
+	</div>
 		
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 		<div class="row">
@@ -144,9 +155,9 @@
 			<div class="row">
 				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 					<div class="panel panel-teal panel-widget border-right">
-						<div class="row no-padding"><em class="fa fa-xl fa-shopping-cart color-blue"></em>
+						<div class="row no-padding"><em class="fa fa-xl fa-dollar color-blue"></em>
 							<div class="large">0</div>
-							<div class="text-muted">Đơn Hàng Mới</div>
+							<div class="text-muted">Doanh Thu</div>
 						</div>
 					</div>
 				</div>
@@ -176,11 +187,12 @@
 				</div>
 			</div><!--/.row-->
 		</div>
+
 		<div class="row">
 			<div class="col-md-12">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						Số Lượt Truy Cập
+						Doanh thu
 						<ul class="pull-right panel-settings panel-button-tab-right">
 							<li class="dropdown"><a class="pull-right dropdown-toggle" data-toggle="dropdown" href="#">
 								<em class="fa fa-cogs"></em>
@@ -209,11 +221,64 @@
 						<div class="canvas-wrapper">
 							<canvas class="main-chart" id="line-chart" height="200" width="600"></canvas>
 						</div>
+						<div class="panel-tk">
+							<label>0.00 VNĐ</label>
+						</div>
+						<div class="panel-tk-1">
+							<div class="tk-1" ><label class="fa fa-arrow-up">0%</label></div>
+							<div class="tk-2" ><label  class="fa fa-arrow-down">0%</label></div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						Số lượt truy cập
+						<ul class="pull-right panel-settings panel-button-tab-right">
+							<li class="dropdown"><a class="pull-right dropdown-toggle" data-toggle="dropdown" href="#">
+								<em class="fa fa-cogs"></em>
+							</a>
+								<ul class="dropdown-menu dropdown-menu-right">
+									<li>
+										<ul class="dropdown-settings">
+											<li><a href="#">
+												<em class="fa fa-cog"></em> Settings 1
+											</a></li>
+											<li class="divider"></li>
+											<li><a href="#">
+												<em class="fa fa-cog"></em> Settings 2
+											</a></li>
+											<li class="divider"></li>
+											<li><a href="#">
+												<em class="fa fa-cog"></em> Settings 3
+											</a></li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+						<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span></div>
+					<div class="panel-body">
+						<div class="canvas-wrapper">
+							<canvas class="main-chart" id="line-chart-2" height="200" width="600"></canvas>
+						</div>
+						<div class="panel-tk">
+							<label>0</label>
+						</div>
+						<div class="panel-tk-1">
+							<div class="tk-1" ><label class="fa fa-arrow-up">0%</label></div>
+							<div class="tk-2" ><label  class="fa fa-arrow-down">0%</label></div>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div><!--/.row-->
-		
+		</div>
+
 		<div class="row">
 			<div class="col-xs-6 col-md-3">
 				<div class="panel panel-default">
@@ -486,10 +551,35 @@
 <!--					</div>-->
 				</div>
 			</div><!--/.col-->
-			<div class="col-sm-12">
-				<p class="back-link">Lumino Theme by <a href="https://www.medialoot.com">Medialoot</a></p>
+		<div class="row">
+			<div class="col-md-6 col-md-20">
+				<div class="panel panel-default chat">
+					<div class="panel-heading">
+						Chi tiêu nhiều nhất
+					</div>
+					<div class="table-a">
+						<table class="table-user">
+							<tr class="boder-t">
+								<th class="row-1">STT</th>
+								<th class="row-7" >Mã người dùng</th>
+								<th class="row-2 row-cols-2"> Tên</th>
+								<th class="row-3 row-cols-3"> Email</th>
+								<th class="row-4 row-cols-4">Chi tiêu</th>
+							</tr>
+							<tr class="boder-t">
+								<th class="row-1">1</th>
+								<td>US002</td>
+								<td><a>Phan Trường Thịnh</a></td>
+								<td>Huuthinh19593@gmail.com</td>
+								<td>xxxxxxxxx VNĐ</td>
+							</tr>
+						</table>
+					</div>
+				</div>
 			</div>
-		</div><!--/.row-->
+		</div>
+
+		</div>
 	</div>	<!--/.main-->
 	
 	<script src="js/jquery-1.11.1.min.js"></script>
@@ -502,15 +592,24 @@
 	<script src="js/custom.js"></script>
 	<script>
 		window.onload = function () {
-	var chart1 = document.getElementById("line-chart").getContext("2d");
-	window.myLine = new Chart(chart1).Line(lineChartData, {
-	responsive: true,
-	scaleLineColor: "rgba(0,0,0,.2)",
-	scaleGridLineColor: "rgba(0,0,0,.05)",
-	scaleFontColor: "#c5c7cc"
-	});
-};
+			var chart1 = document.getElementById("line-chart").getContext("2d");
+			window.myLine = new Chart(chart1).Line(lineChartData, {
+				responsive: true,
+				scaleLineColor: "rgba(0,0,0,.2)",
+				scaleGridLineColor: "rgba(0,0,0,.05)",
+				scaleFontColor: "#c5c7cc"
+			});
+			var chart2 = document.getElementById("line-chart-2").getContext("2d");
+			window.myLine = new Chart(chart2).Line(lineChartData2, {
+				responsive: true,
+				scaleLineColor: "rgba(0,0,0,.2)",
+				scaleGridLineColor: "rgba(0,0,0,.05)",
+				scaleFontColor: "#c5c7cc"
+			});
+
+		};
 	</script>
+
 		
 </body>
 </html>
