@@ -87,7 +87,7 @@
         <img src="img/admin.jpg" class="img-responsive" alt="">
       </div>
       <div class="profile-usertitle">
-        <div class="profile-usertitle-name">Username</div>
+        <div class="profile-usertitle-name">Tên đăng nhập</div>
         <div class="profile-usertitle-status"><span class="indicator label-success"></span>Trực tuyến</div>
       </div>
       <div class="clear"></div>
@@ -126,7 +126,7 @@
           <li><a class="" href="Administrators.html">
             <span class="">&nbsp;</span> Người Quản Trị
           </a></li>
-          <li><a class="" href="User_Public.html">
+          <li><a class="" href="User_Public_admin.html">
             <span class="">&nbsp;</span> Người Dùng
           </a></li>
         </ul>
@@ -206,6 +206,9 @@
             <select class="select-user">
               <option>Tự động</option>
               <option>Mới nhất</option>
+              <option>Chưa giao</option>
+              <option>Đã giao</option>
+              <option>Đang giao</option>
               <option>Từ A-Z</option>
               <option>Từ Z-A</option>
             </select>
@@ -241,7 +244,7 @@
               <option value="">2033</option>
             </select>
             <button class="buton-admin" type="button">Xóa</button>
-            <button class="buton-admin" type="button">Chỉnh sửa</button>
+            <button class="buton-admin" type="button"><a href="Order_Editing_admin.html">Chỉnh sửa</a></button>
 
             <label class="lab label-1">Số đơn hàng: <span class="label label-info">0</span></label>
             <label class="label-1">Đơn mới: <span class="label label-info">0</span></label>
@@ -260,7 +263,7 @@
                 <th class="row-order-5 row-cols-5">Ngày đặt hàng</th>
                 <th class="row-order-6">Địa chỉ</th>
                 <th class="row-order-7 row-cols-6">Trạng thái</th>
-                <th class="row-order-8">Thông tin đơn hàng</th>
+                <th class="row-order-8" >Thông tin đơn hàng</th>
               </tr>
               <tr class="boder-t">
                 <th class="row-1">
@@ -273,7 +276,7 @@
                 <td>14/12/2022</td>
                 <td>.........</td>
                 <td>đã giao</td>
-                <td><a>xem chi tiết</a></td>
+                <td><a href="Order_Details_admin.html">xem chi tiết</a></td>
               </tr>
             </table>
           </div>

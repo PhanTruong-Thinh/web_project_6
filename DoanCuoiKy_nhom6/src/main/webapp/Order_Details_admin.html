@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Người Dùng</title>
+  <title>Chi Tiết Đơn Hàng</title>
   <link href="css_admin/bootstrap.min.css" rel="stylesheet">
   <link href="css_admin/font-awesome.min.css" rel="stylesheet">
   <link href="css_admin/datepicker3.css" rel="stylesheet">
@@ -87,7 +87,7 @@
         <img src="img/admin.jpg" class="img-responsive" alt="">
       </div>
       <div class="profile-usertitle">
-        <div class="profile-usertitle-name">Username</div>
+        <div class="profile-usertitle-name">Tên đăng nhập</div>
         <div class="profile-usertitle-status"><span class="indicator label-success"></span>Trực tuyến</div>
       </div>
       <div class="clear"></div>
@@ -126,7 +126,7 @@
           <li><a class="" href="Administrators.html">
             <span class="">&nbsp;</span> Quản Trị Viên
           </a></li>
-          <li class="active"><a class="active" href="User_Public.html">
+          <li class=""><a class="" href="User_Public_admin.html">
             <span class="">&nbsp;</span> Người Dùng
           </a></li>
 
@@ -136,112 +136,64 @@
     </ul>
   </div>
 
-  <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
-    <div class="row">
-      <ol class="breadcrumb">
-        <li><a href="#">
-          <em class="fa fa-home"></em>
-        </a></li>
-        <li class="active"> Thành Viên</li>
-      </ol>
-    </div><!--/.row-->
+  <div class="container-details">
+    <h2>Chi Tiết Đơn Đặt Hàng</h2>
 
-    <div class="row">
-      <div class="col-lg-12">
-        <h1 class="page-header"> Người Dùng</h1>
-      </div>
-    </div><!--/.row-->
+    <table class="table-details" >
+      <tr>
+        <td>Mã đơn hàng:</td>
+        <td>...........</td>
+      </tr>
+      <tr>
+        <td>Mã khách hàng:</td>
+        <td>...........</td>
+      </tr>
+      <tr>
+        <td>Tên khách hàng:</td>
+        <td>...........</td>
+      </tr>
+      <tr>
+        <td>Ngày đặt hàng:</td>
+        <td>...........</td>
+      </tr>
+      <tr>
+        <td>Số điện thoại giao hàng:</td>
+        <td>...........</td>
+      </tr>
+      <tr>
+        <td>Địa chỉ giao hàng:</td>
+        <td>...........</td>
+      </tr>
+      <tr>
+        <td>Trạng thái đơn hàng:</td>
+        <td>...........</td>
+      </tr>
+      <tr>
+        <td>Giá trị đơn hàng:</td>
+        <td>...........</td>
+      </tr>
+    </table>
+    <h3>Danh sách sản phẩm</h3>
+    <table class="table-details-pro" >
+      <tr class="table-tr">
+        <th class="tr">Mã sản phẩm</th>
+        <th class="tr">Tên sản phẩm</th>
+        <th class="tr">Số lượng mua</th>
+        <th class="tr">Đơn giá</th>
+        <th class="tr">Thành tiền</th>
+      </tr>
+      <tr class="table-tr">
+        <td class="tr">.....</td>
+        <td class="tr">....</td>
+        <td class="tr">...</td>
+        <td class="tr">....</td>
+        <td class="tr">.....</td>
+      </tr>
+    </table>
 
-    <div class="panel panel-container">
-      <div class="row">
-        <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
-          <div class="panel panel-teal panel-widget border-right">
-            <div class="row no-padding"><em class="fa fa-xl fa-users color-blue"></em>
-              <div class="large">0</div>
-              <div class="text-muted">Tổng Số Người Dùng</div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
-          <div class="panel panel-blue panel-widget border-right">
-            <div class="row no-padding"><em class="fa fa-xl fa-users color-orange"></em>
-              <div class="large">0</div>
-              <div class="text-muted">Đang Đăng Nhập</div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
-          <div class="panel panel-orange panel-widget border-right">
-            <div class="row no-padding"><em class="fa fa-xl fa-users color-teal"></em>
-              <div class="large">0</div>
-              <div class="text-muted">Người Dùng Mới</div>
-            </div>
-          </div>
-        </div>
-<!--        <div class="col-xs-6 col-md-3 col-lg-3 no-padding">-->
-<!--          <div class="panel panel-red panel-widget ">-->
-<!--            <div class="row no-padding"><em class="fa fa-xl fa-search color-red"></em>-->
-<!--              <div class="large">0</div>-->
-<!--              <div class="text-muted">Lượt Xem</div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-      </div><!--/.row-->
-
-
-
-
-    </div>
-    <div class="row">
-      <div class="col-md-6 col-md-20">
-        <div class="panel panel-default chat">
-          <div class="panel-heading">
-            Tài Khoản Người Dùng
-          </div>
-          <div class="panel-footer nemu-user">
-            <div class="input-group">
-              <input type="text" class="form-control input-md" placeholder="Tìm kiếm" /><span class="input-group-btn">
-								<button class="btn btn-primary btn-md" id="btn-chat">Tìm</button>
-						</span></div>
-          </div>
-          <div class="select">
-            <select class="select-user">
-              <option>Lọc</option>
-              <option>Tự động</option>
-              <option>Từ A-Z</option>
-              <option>Từ Z-A</option>
-            </select>
-          </div>
-          <div class="table-a">
-            <table class="table-user">
-              <tr class="boder-t">
-                <th class="row-1">
-                  <input type="checkbox">
-                </th>
-                <th class="row-7" >Mã người dùng</th>
-                <th class="row-2 row-cols-2"> Tên</th>
-                <th class="row-3 row-cols-3"> Email</th>
-                <th class="row-4 row-cols-4">Số điện thoại</th>
-                <th class="row-5 row-cols-5">Ngày đăng ký</th>
-                <th class="row-6 row-cols-6">Lịch sử mua sắm</th>
-              </tr>
-              <tr class="boder-t">
-                <th class="row-1">
-                  <input type="checkbox">
-                </th>
-                <td>US002</td>
-                <td><a>Phan Trường Thịnh</a></td>
-                <td>Huuthinh19593@gmail.com</td>
-                <td>0923899472</td>
-                <td>13/12/2022</td>
-                <td><a>xem chi tiết</a></td>
-              </tr>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
+
+
 
   <script src="js/jquery-1.11.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>

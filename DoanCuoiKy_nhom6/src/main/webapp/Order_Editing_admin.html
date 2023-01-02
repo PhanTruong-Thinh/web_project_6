@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sản Phẩm</title>
+  <title>Chỉnh Sửa Đơn Đặt Hàng</title>
   <link href="css_admin/bootstrap.min.css" rel="stylesheet">
   <link href="css_admin/font-awesome.min.css" rel="stylesheet">
   <link href="css_admin/datepicker3.css" rel="stylesheet">
@@ -87,7 +87,7 @@
         <img src="img/admin.jpg" class="img-responsive" alt="">
       </div>
       <div class="profile-usertitle">
-        <div class="profile-usertitle-name">Username</div>
+        <div class="profile-usertitle-name">Tên đăng nhập</div>
         <div class="profile-usertitle-status"><span class="indicator label-success"></span>Trực tuyến</div>
       </div>
       <div class="clear"></div>
@@ -111,7 +111,7 @@
           <li><a class="" href="Category.html">
             <span class="">&nbsp;</span> Danh Mục
           </a></li>
-          <li class="active"><a class="active"  href="product_admin.html">
+          <li class=""><a class=""  href="product_admin.html">
             <span class="">&nbsp;</span> Sản Phẩm
           </a></li>
         </ul>
@@ -139,140 +139,118 @@
         <li><a href="#">
           <em class="fa fa-home"></em>
         </a></li>
-        <li class="active"> Quản Lý Danh Mục</li>
+<!--        <li class="active"> Quản Lý Danh Mục / ss</li>-->
       </ol>
     </div><!--/.row-->
 
     <div class="row">
       <div class="col-lg-12">
-        <h1 class="page-header"> Sản Phẩm</h1>
+        <h1 class="page-header"> Chỉnh sửa đơn đặt hàng</h1>
       </div>
     </div><!--/.row-->
 
-    <div class="panel panel-container">
-      <div class="row">
-        <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
-          <div class="panel panel-teal panel-widget border-right">
-            <div class="row no-padding"><em class="fa fa-xl fa-product-hunt color-blue"></em>
-              <div class="large">0</div>
-              <div class="text-muted">Tổng Số Sản Phẩm</div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
-          <div class="panel panel-blue panel-widget border-right">
-            <div class="row no-padding"><em class="fa fa-xl fa-product-hunt color-orange"></em>
-              <div class="large">0</div>
-              <div class="text-muted">Đang Kinh Doanh</div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
-          <div class="panel panel-orange panel-widget border-right">
-            <div class="row no-padding"><em class="fa fa-xl fa-product-hunt color-teal"></em>
-              <div class="large">0</div>
-              <div class="text-muted">Sản Phẩm Mới</div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
-          <label>Tình trạng sản phẩm:</label>
-          <ul>
-            <li>Còn hàng: <span class="label label-info">0</span> </li>
-            <li>Hết hàng: <span class="label label-info">0</span>  </li>
-            <li>Ngừng kinh doanh: <span class="label label-info">0</span> </li>
-
-          </ul>
-        </div>
-      </div>
-
-
-
-
+    <div class="add">
+      <button>Lưu thay đổi</button>
+      <button>Xóa thay đổi</button>
     </div>
-    <div class="row">
-      <div class="col-md-6 col-md-20">
-        <div class="panel panel-default chat">
-          <div class="panel-heading">
-            Danh Sách Sản Phẩm
-          </div>
-          <div class="panel-footer nemu-user">
-            <div class="input-group">
-              <input type="text" class="form-control input-md" placeholder="Tìm kiếm" /><span class="input-group-btn">
-								<button class="btn btn-primary btn-md" id="btn-chat">Tìm</button>
-						</span></div>
-          </div>
-          <div class="select">
-            <p style="margin-left: 15px">Số sản phẩm: <span class="label label-info">0</span> </p>
-            <select class="select-user">
-              <option>Tự động</option>
-              <option value="">Nổi bật</option>
-              <option value="">Mới</option>
-              <option value="">Hiển thị</option>
-              <option>Từ A-Z</option>
-              <option>Từ Z-A</option>
-            </select>
-            <select class="select-user">
-              <option>--danh mục--</option>
-              <option value="">......</option>
-              <option value="">......</option>
-              <option value="">......</option>
-            </select>
-            <select class="select-user">
-              <option>--giá--</option>
-              <option value="">tăng dần</option>
-              <option value="">giảm dần</option>
-              <option value=""><= 1.000.000vnđ</option>
-              <option value=""><= 2.000.000vnđ</option>
-              <option value=""><= 5.000.000vnđ</option>
-              <option value="">> 5.000.000vnđ</option>
-            </select>
-            <button class="buton buton-admin" type="button" style="float: right; background:  #30a5ff; margin-right: 20px; color: white; border: white; margin-left: 5px">Lưu</button>
-            <button class="buton-admin" type="button" style="float: right; margin-left: 5px" ><a href="add_product_admin.html">Thêm</a></button>
-            <button class="buton-admin" type="button" style="float: right; margin-left: 5px">Xóa</button>
-            <button class="buton-admin" type="button" style="float: right; margin-left: 5px">Chỉnh sửa</button>
-
-          </div>
-          <div class="table-a">
-            <table class="table-user">
-              <tr class="boder-t">
-                <th class="row-1">
-                  <input type="checkbox">
-                </th>
-                <th class="row-pro-1" >Mã sản phẩm</th>
-                <th class="row-pro-2 row-cols-4">Danh mục</th>
-                <th class="row-pro-3 row-cols-2"> Tiêu đề</th>
-                <th class="row-pro-4 row-cols-3"> Hình ảnh</th>
-                <th class="row-pro-5 row-cols-4">Giá bán</th>
-                <th class="row-pro-6 row-cols-4">Nổi bật</th>
-                <th class="row-pro-7 row-cols-4">Mới</th>
-                <th class="row-pro-8 row-cols-4">Hiển thị</th>
-                <th class="row-pro-9 row-cols-5">Ngày đăng</th>
-                <th class="row-pro-10 row-cols-6">Tình trạng</th>
-                <th class="row-pro-11 row-cols-6">Lượt mua</th>
+    <div class="container1">
+      <div class="tilteproduct">
+        <form class="form-1">
+          <fieldset>
+            <legend>Thông tin cố định</legend>
+            <table class="table-details-1" >
+              <tr>
+                <td>Mã đơn hàng:</td>
+                <td>...........</td>
               </tr>
-              <tr class="boder-t">
-                <th class="row-1">
-                  <input type="checkbox">
-                </th>
-                <td>SP001</td>
-                <td><a>Tôm</a></td>
-                <td>Tôm Hùm</td>
-                <td>......</td>
-                <td>xxxxxx VNĐ</td>
-                <td> <input type="checkbox"></td>
-                <td> <input type="checkbox"></td>
-                <td> <input type="checkbox"></td>
-                <td>14/12/2022</td>
-                <td>Còn hàng</td>
-                <td>0</td>
+              <tr>
+                <td>Mã khách hàng:</td>
+                <td>...........</td>
+              </tr>
+              <tr>
+                <td>Tên khách hàng:</td>
+                <td>...........</td>
+              </tr>
+              <tr>
+                <td>Ngày đặt hàng:</td>
+                <td>...........</td>
+              </tr>
+              <tr>
+                <td>Giá trị đơn hàng:</td>
+                <td>...........</td>
               </tr>
             </table>
-          </div>
+          </fieldset>
+        </form>
+      </div>
+      </div>
+    </div>
+
+
+    <div class="container-2">
+        <div class="div-left">
+          <form class="form-1">
+            <fieldset>
+              <legend>Thông tin có thể thay đổi</legend>
+
+                <table class="table-details" >
+                  <tr>
+                    <td>Số điện thoại:</td>
+                    <td>...........</td>
+                  </tr>
+                  <tr>
+                    <td>Địa chỉ giao hàng:</td>
+                    <td>...........</td>
+                  </tr>
+                  <tr>
+                    <td>Trạng thái đơn hàng:</td>
+                    <td>...........</td>
+                  </tr>
+                </table>
+
+            </fieldset>
+          </form>
         </div>
       </div>
     </div>
+
+    <div class="container-2">
+              <div class="div-rigth">
+                <form class="form-1">
+                  <fieldset>
+                    <legend>Thông tin mới</legend>
+                    Số điện thoại mới:
+                    <input class="addInfo-1 addInfo"><br><br>
+                    Địa chỉ giao hàng mới:
+                    <input class="addInfo-2 addInfo"><br><br>
+      <!--              <select>-->
+      <!--                <option>--phường/xã--</option>-->
+      <!--                <option value="">Tôm</option>-->
+      <!--                <option value="">Cua</option>-->
+      <!--                <option value="">Cá</option>-->
+      <!--              </select>-->
+      <!--              <select>-->
+      <!--                <option>--Quận/Huyện--</option>-->
+      <!--                <option value="">Quận 1</option>-->
+      <!--                <option value="">Quận 2</option>-->
+      <!--                <option value="">Quận 3</option>-->
+      <!--              </select>-->
+      <!--              <select>-->
+      <!--                <option>TP.Hồ Chí Minh</option>-->
+      <!--              </select><br><br>-->
+                    Trạng thái:
+                    <select>
+                      <option value="">Chưa giao</option>
+                      <option value="">Đang giao</option>
+                      <option value="">Đã giao</option>
+                    </select>
+
+                  </fieldset>
+                </form>
+              </div>
+    </div>
   </div>
+
   <script src="js/jquery-1.11.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/chart.min.js"></script>
