@@ -27,7 +27,7 @@ public class ProductService {
 //        }
 //         return  list;
        return JDBiConnector.me().withHandle(handle -> {
-            return handle.createQuery("select  * from products").mapToBean(Product.class)
+            return handle.createQuery("select  * from san_pham").mapToBean(Product.class)
                     .stream().collect(Collectors.toList());
         });
     }
