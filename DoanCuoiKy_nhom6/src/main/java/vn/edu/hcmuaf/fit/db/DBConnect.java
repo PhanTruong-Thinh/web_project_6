@@ -3,7 +3,7 @@ package vn.edu.hcmuaf.fit.db;
 import java.sql.*;
 
 public class DBConnect {
-    private String url = "jdbc:mysql://localhost:3306/test";
+    private String url = "jdbc:mysql://localhost:3306/danhsachsanpham";
     private String user = "root";
     private String pass = "";
 
@@ -38,7 +38,7 @@ public class DBConnect {
         try {
             Statement statement = DBConnect.getInstall().get();
             if(statement!=null) {
-                ResultSet rs = statement.executeQuery("select  * from products");
+                ResultSet rs = statement.executeQuery("select  * from san_pham");
                 while (rs.next()){
                     System.out.print(rs.getInt(1) +" -- ");
                     System.out.println(rs.getString(2));
