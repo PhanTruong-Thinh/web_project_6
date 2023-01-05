@@ -16,6 +16,8 @@
 </head>
 <body>
 <!--header start here-->
+<% String error= (String) request.getAttribute("error");
+%>
 <div class="header">
 		<div class="header-main">
 
@@ -25,10 +27,12 @@
 					
 					<div class="header-left-bottom agileinfo">
 						
-					 <form action="/doLoginUser" method="post">
+					 <form action="/DoanCuoiKy_nhom6/loginUser" method="post">
 
 
-						<input type="text"  value="Tên Đăng Nhập" name="Tên Đăng Nhập" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Tên Đăng Nhập';}"/>
+						<input type="text"  value="Tên Đăng Nhập" name="Tên Đăng Nhập" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Tên Đăng Nhập';}"
+							   placeholder="Nhập Email hoặc số điện thoại" required value="<%=request.getParameter("username")!=null?request.getParameter("username"):""%>"
+						/>
 					<input type="password"  value="Mật Khẩu" name="Mật Khẩu" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mật Khẩu';}"/>
 						<div class="remember">
 			             <span class="checkbox1">

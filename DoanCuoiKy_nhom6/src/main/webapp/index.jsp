@@ -3,18 +3,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <title>Login</title>
 </head>
 <body>
 <% Account_User auth= (Account_User) session.getAttribute("auth"); %>
 <% if(auth==null){ %>
 <p> Bạn chưa đăng nhập </p>
-    <% } else { %>
+<% } else { %>
 <p> Chào bạn :<% auth.getEmail() ;%> </p>
- <% } %>
+<% } %>
 
-
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
 </body>
 </html>
