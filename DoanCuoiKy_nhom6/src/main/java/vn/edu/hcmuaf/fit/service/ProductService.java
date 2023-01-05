@@ -1,13 +1,8 @@
 package vn.edu.hcmuaf.fit.service;
 
-import vn.edu.hcmuaf.fit.db.DBConnect;
 import vn.edu.hcmuaf.fit.db.JDBiConnector;
 import vn.edu.hcmuaf.fit.model.Product;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,7 +21,7 @@ public class ProductService {
 //            throw new RuntimeException(e);
 //        }
 //         return  list;
-       return JDBiConnector.me().withHandle(handle -> {
+       return JDBiConnector.get().withHandle(handle -> {
             return handle.createQuery("select  * from san_pham").mapToBean(Product.class)
                     .stream().collect(Collectors.toList());
         });

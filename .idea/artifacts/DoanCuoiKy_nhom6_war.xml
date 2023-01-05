@@ -7,7 +7,7 @@
         <packaging>war</packaging>
       </options>
     </properties>
-    <root id="archive" name="DoanCuoiKy_nhom6.war">
+    <root id="archive" name="Lab6.war">
       <element id="artifact" artifact-name="DoanCuoiKy_nhom6:war exploded" />
     </root>
   </artifact>

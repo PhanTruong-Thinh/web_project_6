@@ -12,7 +12,7 @@ public class DBProperties {
             throw new RuntimeException(e);
         }
     }
-    public static String host(){  return prop.get("db.host").toString(); }
+    public static String host(){ return prop.get("db.host").toString(); }
     public static String port(){  return prop.get("db.port").toString(); }
     public static String user(){  return prop.get("db.user").toString(); }
     public static String pass(){  return prop.get("db.pass").toString(); }
