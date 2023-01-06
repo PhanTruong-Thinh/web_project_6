@@ -161,6 +161,14 @@ public class ProductService {
         });
         new PriceService().updatePricePro(id,price);
     }
+
+
+    //lay sang pham tu gio hang
+    public  static Integer getProductCart(String maKH){
+        return JDBIConnector.get().withHandle(handle -> {
+            return handle.createUpdate("select s.Ma_SP,s.MA_SM,s.TenSP,s.XuatSu,s.Img,s.SoLuong,s.TrangThai,g.Gia_Ban from san_pham s join gio_hang g on s.Ma_SP=g.Ma_SP where g.Ma_KH='"+maKH+"'").execute();
+        });
+    }
     public static void main(String[] args) {
         String sql="INSERT INTO products VALUES";
         List<Product> data = getData();
@@ -169,4 +177,6 @@ public class ProductService {
         }
         System.out.println(sql);
     }
+
+
 }

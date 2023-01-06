@@ -1,16 +1,14 @@
 package vn.edu.hcmuaf.fit.db;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
-import org.jdbi.v3.core.HandleCallback;
 import org.jdbi.v3.core.Jdbi;
 import vn.edu.hcmuaf.fit.model.Account_User;
-import vn.edu.hcmuaf.fit.model.Product;
 
 import java.sql.SQLException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class JDBiConnector {
+public class JDBIConnector {
     static Jdbi jdbi;
 
     private static void makeConnect() {
@@ -30,7 +28,7 @@ public class JDBiConnector {
     }
 
 
-    private JDBiConnector() {
+    private JDBIConnector() {
     }
 
     public static Jdbi get() {
@@ -39,7 +37,7 @@ public class JDBiConnector {
     }
 
     public static void main(String[] args) {
-        List<Account_User> users = JDBiConnector.get().withHandle(handle -> {
+        List<Account_User> users = JDBIConnector.get().withHandle(handle -> {
             return handle.createQuery("select * from tk_nguoidung")
                     .mapToBean(Account_User.class).stream().collect(Collectors.toList());
         });
