@@ -16,8 +16,8 @@ public class JDBiConnector {
     private static void makeConnect() {
         MysqlDataSource dataSource = new MysqlDataSource();
         dataSource.setURL("jdbc:mysql://" + DBProperties.host() + ":" + DBProperties.port() + "/"
-                + DBProperties.user());
-        dataSource.setUser(DBProperties.name());
+                + DBProperties.name());
+        dataSource.setUser(DBProperties.user());
         dataSource.setPassword(DBProperties.pass());
         try {
             dataSource.setUseCompression(true);

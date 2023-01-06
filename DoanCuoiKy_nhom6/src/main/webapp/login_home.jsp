@@ -27,28 +27,27 @@
 					
 					<div class="header-left-bottom agileinfo">
 						
-					 <form action="/DoanCuoiKy_nhom6/loginUser" method="post">
+					 <form action="<%=request.getContextPath()%>/loginUser" method="post">
 
 
-						<input type="text"  value="Tên Đăng Nhập" name="Tên Đăng Nhập" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Tên Đăng Nhập';}"
-							   placeholder="Nhập Email hoặc số điện thoại" required value="<%=request.getParameter("username")!=null?request.getParameter("username"):""%>"
+						<input type="text"  value="Tên Đăng Nhập" name="text" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Tên Đăng Nhập';}"
+							   placeholder="Nhập Email hoặc số điện thoại" required value="<%=request.getParameter("text")!=null?request.getParameter("text"):""%>"
 						/>
-					<input type="password"  value="Mật Khẩu" name="Mật Khẩu" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mật Khẩu';}"/>
+					<input type="password"  value="Mật Khẩu" name="password" onfocus="this.value ='';" onblur="if (this.value == '') {this.value = 'Mật Khẩu';}"/>
 						<div class="remember">
 			             <span class="checkbox1">
 							   <label class="checkbox"><input type="checkbox" name="" checked=""><i> </i>Nhớ tôi</label>
 						 </span>
 						 <div class="forgot">
-						 	<h6><a href="forgot_pass.html">Quên mật khẩu?</a></h6>
+						 	<h6><a href="">Quên mật khẩu?</a></h6>
 						 </div>
 						<div class="clear"> </div>
 					  </div>
-					   
-						
+						 <input type="submit" value="Đăng Nhập">
 					</form>	
-					<form action="home.html">
-						<input type="submit" value="Đăng Nhập">
-					</form>
+<%--					<form action="">--%>
+<%--						<input type="submit" value="Đăng Nhập">--%>
+<%--					</form>--%>
 					<div class="header-left-top">
 						<div class="sign-up"> <h2>Hoặc</h2> </div>
 					

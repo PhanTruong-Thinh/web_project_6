@@ -5,10 +5,6 @@ public class Account_User {
 
     private String tenKH;
 
-
-
-
-
     private String email;
     private int SDT;
     private String passWord;

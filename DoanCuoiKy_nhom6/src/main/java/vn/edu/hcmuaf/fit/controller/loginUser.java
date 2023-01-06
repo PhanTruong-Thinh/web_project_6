@@ -12,28 +12,29 @@ import java.io.IOException;
 public class loginUser extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    request.getRequestDispatcher("login_home.jsp").forward(request,response);
-
+        request.getRequestDispatcher("login_home.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String text= request.getParameter("text");
-        String password=request.getParameter("password");
-        Account_User user= UserService.getInstance().checkLogin(text,password);
-        if(user==null){
+        String text = request.getParameter("text");
+        String password = request.getParameter("password");
+        Account_User user = UserService.getInstance().checkLogin(text, password);
+        if (user == null) {
             HttpSession session = request.getSession(true);
-            session.setAttribute("error","User or password is incorrect");
-            response.sendRedirect("loginUser");
+            session.setAttribute("error", "User or password is incorrect");
+            response.sendRedirect("login_home.jsp");
 
-        } else if (user != null ) {
+        } else if (user != null) {
             HttpSession session = request.getSession(true);
             session.setAttribute("auth", user);
             session.setAttribute("maKH", user.getMaKH());
-            response.sendRedirect("http://localhost:8080/DoanCuoiKy_nhom6/home?getMaKh=" + user.getMaKH());
+           // response.sendRedirect(request.getContextPath()+"/trang-chu");
+            request.getRequestDispatcher("home.html").forward(request,response);
         } else {
             request.setAttribute("error", "Sai tài khoản hoặc mật khẩu");
-            request.getRequestDispatcher("login_home.jsp").forward(request, response);
+            request.getRequestDispatcher("/login_home.jsp").forward(request, response);
         }
+        response.getWriter().println(user.getTenKH());
     }
 }
