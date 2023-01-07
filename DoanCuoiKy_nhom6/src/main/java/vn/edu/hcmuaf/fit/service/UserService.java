@@ -26,12 +26,13 @@ public class UserService {
     public Account_User checkLogin(String username, String password){
         List<Account_User> users= JDBiConnector.get().withHandle(h->
                 h.createQuery("SELECT * FROM tk_nguoidung WHERE username=?")
-                        .bind(0,username).bind(1,username)
+                        .bind(0,username)
                         .mapToBean(Account_User.class)
                         .stream().collect(Collectors.toList()));
 
         if(users.size() != 1) return null;
         Account_User user= users.get(0);
+        System.out.println(user.getPassWord());
         if(!user.getPassWord().equals(hashPassword(password)) ||user.getEmail().equals(username)){
             return null;
         }

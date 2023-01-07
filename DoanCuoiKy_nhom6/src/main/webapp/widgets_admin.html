@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Quảng Lý</title>
+	<title>Quản Lý</title>
 	<link href="css_admin/bootstrap.min.css" rel="stylesheet">
 	<link href="css_admin/font-awesome.min.css" rel="stylesheet">
 	<link href="css_admin/datepicker3.css" rel="stylesheet">
@@ -11,6 +11,7 @@
 	
 	<!--Custom Font-->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+	<script src="js/chart.min.js"></script>
 	<!--[if lt IE 9]>
 	<script src="js/html5shiv.js"></script>
 	<script src="js/respond.min.js"></script>
@@ -366,8 +367,8 @@
 					</div>
 					<div class="panel-footer">
 						<div class="input-group">
-							<input id="btn-input-1" type="text" class="form-control input-md" placeholder="Add new task" /><span class="input-group-btn">
-								<button class="btn btn-primary btn-md" id="btn-todo">Add</button>
+							<input id="btn-input-1" type="text" class="form-control input-md" placeholder="Thêm nhiệm vụ mới" /><span class="input-group-btn">
+								<button class="btn btn-primary btn-md" id="btn-todo">Thêm</button>
 						</span></div>
 					</div>
 				</div>
@@ -381,7 +382,7 @@
 								<ul class="dropdown-menu dropdown-menu-right">
 									<li>
 										<ul class="dropdown-settings">
-											<li><a href="#">
+											<li><a href="#	">
 												<em class="fa fa-cog"></em> Settings 1
 											</a></li>
 											<li class="divider"></li>
@@ -401,27 +402,26 @@
 					<div class="panel-body">
 						<ul>
 							<li class="left clearfix"><span class="chat-img pull-left">
-								<img src="http://placehold.it/60/30a5ff/fff" alt="User Avatar" class="img-circle" />
+								<img src="http://placehold.it/60/30a5ff/fff" alt="Hình người dùng" class="img-circle" />
 								</span>
 								<div class="chat-body clearfix">
-									<div class="header"><strong class="primary-font">John Doe</strong> <small class="text-muted">32 mins ago</small></div>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ante turpis, rutrum ut ullamcorper sed, dapibus ac nunc.</p>
-								</div>
+									<div class="header"><strong class="primary-font">Trường Thịnh</strong> <small class="text-muted">Cách đây 32 phút</small></div>
+									<p> </p>
 							</li>
 							<li class="right clearfix"><span class="chat-img pull-right">
-								<img src="http://placehold.it/60/dde0e6/5f6468" alt="User Avatar" class="img-circle" />
+								<img src="http://placehold.it/60/dde0e6/5f6468" alt="Hình người dùng" class="img-circle" />
 								</span>
 								<div class="chat-body clearfix">
-									<div class="header"><strong class="pull-left primary-font">Jane Doe</strong> <small class="text-muted">6 mins ago</small></div>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ante turpis, rutrum ut ullamcorper sed, dapibus ac nunc.</p>
+									<div class="header"><strong class="pull-left primary-font">Phú Quý</strong> <small class="text-muted">Cách đây 6 phút</small></div>
+									<p></p>
 								</div>
 							</li>
 							<li class="left clearfix"><span class="chat-img pull-left">
-								<img src="http://placehold.it/60/30a5ff/fff" alt="User Avatar" class="img-circle" />
+								<img src="http://placehold.it/60/30a5ff/fff" alt="Hình người dùng " class="img-circle" />
 								</span>
 								<div class="chat-body clearfix">
-									<div class="header"><strong class="primary-font">John Doe</strong> <small class="text-muted">32 mins ago</small></div>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ante turpis, rutrum ut ullamcorper sed, dapibus ac nunc.</p>
+									<div class="header"><strong class="primary-font">Trung Tín </strong> <small class="text-muted">Cách đây 12 phút </small></div>
+									<p></p>
 								</div>
 							</li>
 						</ul>
@@ -438,7 +438,7 @@
 			<div class="col-md-6">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						Calendar
+						Lịch
 						<ul class="pull-right panel-settings panel-button-tab-right">
 							<li class="dropdown"><a class="pull-right dropdown-toggle" data-toggle="dropdown" href="#">
 								<em class="fa fa-cogs"></em>
@@ -447,15 +447,15 @@
 									<li>
 										<ul class="dropdown-settings">
 											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 1
+												<em class="fa fa-cog"></em> Cài đặt 1
 											</a></li>
 											<li class="divider"></li>
 											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 2
+												<em class="fa fa-cog"></em> Cài đặt 2
 											</a></li>
 											<li class="divider"></li>
 											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 3
+												<em class="fa fa-cog"></em> Cài đặt 3
 											</a></li>
 										</ul>
 									</li>
@@ -469,7 +469,7 @@
 				</div>
 				<div class="panel panel-default ">
 					<div class="panel-heading">
-						Mốc thời giab
+						Mốc thời gian
 						<ul class="pull-right panel-settings panel-button-tab-right">
 							<li class="dropdown"><a class="pull-right dropdown-toggle" data-toggle="dropdown" href="#">
 								<em class="fa fa-cogs"></em>
@@ -478,15 +478,15 @@
 									<li>
 										<ul class="dropdown-settings">
 											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 1
+												<em class="fa fa-cog"></em> Cài đặt 1
 											</a></li>
 											<li class="divider"></li>
 											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 2
+												<em class="fa fa-cog"></em> Cài đặt 2
 											</a></li>
 											<li class="divider"></li>
 											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 3
+												<em class="fa fa-cog"></em> Cài đặt 3
 											</a></li>
 										</ul>
 									</li>
@@ -543,7 +543,7 @@
 				</div>
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						Contact Form
+						Mẫu liên hệ
 						<ul class="pull-right panel-settings panel-button-tab-right">
 							<li class="dropdown"><a class="pull-right dropdown-toggle" data-toggle="dropdown" href="#">
 								<em class="fa fa-cogs"></em>
@@ -552,15 +552,15 @@
 									<li>
 										<ul class="dropdown-settings">
 											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 1
+												<em class="fa fa-cog"></em> Cài đặt 1
 											</a></li>
 											<li class="divider"></li>
 											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 2
+												<em class="fa fa-cog"></em> Cài đặt 2
 											</a></li>
 											<li class="divider"></li>
 											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 3
+												<em class="fa fa-cog"></em> Cài đặt 3
 											</a></li>
 										</ul>
 									</li>
@@ -573,32 +573,32 @@
 							<fieldset>
 								<!-- Name input-->
 								<div class="form-group">
-									<label class="col-md-3 control-label" for="name">Name</label>
+									<label class="col-md-3 control-label" for="name">Tên</label>
 									<div class="col-md-9">
-										<input id="name" name="name" type="text" placeholder="Your name" class="form-control">
+										<input id="name" name="name" type="text" placeholder="Tên của bạn" class="form-control">
 									</div>
 								</div>
 							
 								<!-- Email input-->
 								<div class="form-group">
-									<label class="col-md-3 control-label" for="email">Your E-mail</label>
+									<label class="col-md-3 control-label" for="email">Địa chỉ email</label>
 									<div class="col-md-9">
-										<input id="email" name="email" type="text" placeholder="Your email" class="form-control">
+										<input id="email" name="email" type="text" placeholder="Địa chỉ email của bạn" class="form-control">
 									</div>
 								</div>
 								
 								<!-- Message body -->
 								<div class="form-group">
-									<label class="col-md-3 control-label" for="message">Your message</label>
+									<label class="col-md-3 control-label" for="message">Tin nhắn của bạn</label>
 									<div class="col-md-9">
-										<textarea class="form-control" id="message" name="message" placeholder="Please enter your message here..." rows="5"></textarea>
+										<textarea class="form-control" id="message" name="message" placeholder="Vui lòng nhập tin nhắn của bạn ở đây..." rows="5"></textarea>
 									</div>
 								</div>
 								
 								<!-- Form actions -->
 								<div class="form-group">
 									<div class="col-md-12 widget-right">
-										<button type="submit" class="btn btn-default btn-md pull-right">Submit</button>
+										<button type="submit" class="btn btn-default btn-md pull-right">Gửi</button>
 									</div>
 								</div>
 							</fieldset>
@@ -606,9 +606,9 @@
 					</div>
 				</div>
 			</div><!--/.col-->
-			<div class="col-sm-12">
-				<p class="back-link">Lumino Theme by <a href="https://www.medialoot.com">Medialoot</a></p>
-			</div>
+<!--			<div class="col-sm-12">-->
+<!--				<p class="back-link">Lumino Theme by <a href="https://www.medialoot.com">Medialoot</a></p>-->
+<!--			</div>-->
 		</div><!--/.row-->
 	</div>	<!--/.main-->
 	  
