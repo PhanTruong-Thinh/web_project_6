@@ -11,19 +11,19 @@ public class Product implements Serializable {
 //    private long price;
     private int soLuong;
     private String trangThai;
-    private PriceProduct price;
+    private double price;
 
     public Product() {
     }
 
-    public Product(int id, String name, String img, PriceProduct price) {
+    public Product(int id, String name, String img,double price) {
         this.id = id;
         this.name = name;
         this.img = img;
         this.price = price;
     }
 
-    public Product(int id, String id_DanhMuc, String name, String xuatXu, String img, PriceProduct price, int soLuong, String trangThai) {
+    public Product(int id, String id_DanhMuc, String name, String xuatXu, String img, double price, int soLuong, String trangThai) {
         this.id = id;
         this.id_DanhMuc = id_DanhMuc;
         this.name = name;
@@ -91,11 +91,11 @@ public class Product implements Serializable {
     }
 
     public double getPrice() {
-        return price.getGia_Ban();
+        return price;
     }
 
     public void setPrice(double price) {
-        this.price.setGia_Ban( price) ;
+        this.price=price ;
     }
 
     @Override
@@ -104,7 +104,7 @@ public class Product implements Serializable {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", img='" + img + '\'' +
-                ", price=" + price.getGia_Ban() +
+                ", price=" + price +
                 '}';
     }
 }

@@ -1,6 +1,8 @@
 package vn.edu.hcmuaf.fit.model;
 
-public class PriceProduct {
+import java.io.Serializable;
+
+public class PriceProduct implements Serializable {
     private String idProduct;
     private String date;
     private double gia_Thuc;

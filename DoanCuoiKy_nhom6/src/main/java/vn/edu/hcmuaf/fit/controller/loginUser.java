@@ -21,6 +21,7 @@ public class loginUser extends HttpServlet {
         String text= request.getParameter("text");
         String password=request.getParameter("password");
         Account_User user= UserService.getInstance().checkLogin(text,password);
+
         if(user==null){
             HttpSession session = request.getSession(true);
             session.setAttribute("error","User or password is incorrect");

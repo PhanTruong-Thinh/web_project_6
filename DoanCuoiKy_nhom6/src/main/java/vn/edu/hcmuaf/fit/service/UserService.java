@@ -1,6 +1,6 @@
 package vn.edu.hcmuaf.fit.service;
 
-import vn.edu.hcmuaf.fit.db.JDBiConnector;
+import vn.edu.hcmuaf.fit.db.JDBIConnector;
 import vn.edu.hcmuaf.fit.model.Account_User;
 
 import java.math.BigInteger;
@@ -24,7 +24,7 @@ public class UserService {
         return instance;
     }
     public Account_User checkLogin(String username, String password){
-        List<Account_User> users= JDBiConnector.get().withHandle(h->
+        List<Account_User> users= JDBIConnector.get().withHandle(h->
                 h.createQuery("SELECT * FROM tk_nguoidung WHERE username=?")
                         .bind(0,username)
                         .mapToBean(Account_User.class)
