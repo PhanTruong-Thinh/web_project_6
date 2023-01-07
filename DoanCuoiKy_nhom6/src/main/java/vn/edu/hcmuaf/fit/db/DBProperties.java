@@ -9,7 +9,7 @@ public class DBProperties {
         try {
             prop.load( DBProperties.class.getClassLoader().getResourceAsStream("db.properties"));
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
     public static String host(){ return prop.get("db.host").toString(); }

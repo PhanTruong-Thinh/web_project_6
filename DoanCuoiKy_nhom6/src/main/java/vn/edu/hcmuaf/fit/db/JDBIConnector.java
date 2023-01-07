@@ -8,14 +8,14 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class JDBIConnector {
+public class JDBiConnector {
     static Jdbi jdbi;
 
     private static void makeConnect() {
         MysqlDataSource dataSource = new MysqlDataSource();
         dataSource.setURL("jdbc:mysql://" + DBProperties.host() + ":" + DBProperties.port() + "/"
-                + DBProperties.user());
-        dataSource.setUser(DBProperties.name());
+                + DBProperties.name());
+        dataSource.setUser(DBProperties.user());
         dataSource.setPassword(DBProperties.pass());
         try {
             dataSource.setUseCompression(true);
@@ -28,7 +28,7 @@ public class JDBIConnector {
     }
 
 
-    private JDBIConnector() {
+    private JDBiConnector() {
     }
 
     public static Jdbi get() {
@@ -37,7 +37,7 @@ public class JDBIConnector {
     }
 
     public static void main(String[] args) {
-        List<Account_User> users = JDBIConnector.get().withHandle(handle -> {
+        List<Account_User> users = JDBiConnector.get().withHandle(handle -> {
             return handle.createQuery("select * from tk_nguoidung")
                     .mapToBean(Account_User.class).stream().collect(Collectors.toList());
         });

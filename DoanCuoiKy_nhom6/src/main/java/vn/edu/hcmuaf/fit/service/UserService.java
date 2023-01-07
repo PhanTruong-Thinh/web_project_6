@@ -1,11 +1,11 @@
 package vn.edu.hcmuaf.fit.service;
 
-import vn.edu.hcmuaf.fit.db.JDBIConnector;
+import vn.edu.hcmuaf.fit.db.JDBiConnector;
 import vn.edu.hcmuaf.fit.model.Account_User;
-
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -13,47 +13,69 @@ public class UserService {
     private static UserService instance;
 
 
-    private UserService(){
+
+    private UserService() {
 
     }
-    public static UserService getInstance(){
-        if(instance==null){
+
+    public static UserService getInstance() {
+        if (instance == null) {
             instance = new UserService();
 
         }
         return instance;
     }
-    public Account_User checkLogin(String username, String password){
-        List<Account_User> users= JDBIConnector.get().withHandle(h->
-                h.createQuery("SELECT * FROM tk_nguoidung WHERE username=?")
-                        .bind(0,username)
-                        .mapToBean(Account_User.class)
-                        .stream().collect(Collectors.toList()));
+//<<<<<<< HEAD
 
-        if(users.size() != 1) return null;
-        Account_User user= users.get(0);
-        System.out.println(user.getPassWord());
-        if(!user.getPassWord().equals(hashPassword(password)) ||user.getEmail().equals(username)){
-            return null;
+//    public Account_User checkLogin(String username, String password) {
+//        List<Account_User> users = JDBiConnector.get().withHandle(h ->
+//                h.createQuery("SELECT Email,Mat_Khau FROM tk_nguoidung WHERE Email=? And Mat_Khau=?")
+//                        .bind(0, username).bind(1, password);
+//    }
+////=======//
+    public Account_User checkLogin(String username, String password){
+         List<Account_User> users= JDBiConnector.get().withHandle(h->
+                        h.createQuery("SELECT Ma_KH,TenKH,Email,So_ĐT,Mat_Khau,TrangThai,Ngay_ĐK FROM tk_nguoidung WHERE  Email=? AND Mat_Khau=?")
+                                .bind(0,username).bind(1, password)
+                                .mapToBean(Account_User.class)
+                                .stream().collect(Collectors.toList()));
+
+
+
+        if (users.size() != 1) return null;
+
+        Account_User user = users.get(0);
+        System.out.print(user.getTenKH()+user.getMaKH()+user.getTrangThai());
+        System.out.print(user.getPassWord());
+        System.out.print(user.getEmail());
+        System.out.print(user.getSDT());
+        if ( user.getEmail().equals(username) || user.getPassWord().equals(password)) {
+            return user;
         }
 
-        return user;
-
+        return null;
 
 
     }
+
+    public static void main(String[] args) {
+        UserService userService = new UserService();
+        System.out.println(userService.checkLogin("trantrungtin012356@gmail.com","PW123"));
+    }
+
     public String hashPassword(String password) {
         try {
             MessageDigest sha256 = null;
             sha256 = MessageDigest.getInstance("SHA-256");
             byte[] hash = sha256.digest(password.getBytes());
             BigInteger number = new BigInteger(1, hash);
-           return number.toString(16);
+            return number.toString(16);
         } catch (NoSuchAlgorithmException e) {
             return null;
 
         }
     }
+
 //    public List<Account_User> getListUser() {
 //        return JDBiConnector.get().withHandle(handle -> {
 //            return handle.createQuery("SELECT * FROM tk_nguoidung")
@@ -115,34 +137,35 @@ public class UserService {
 //    public List<Account_User> searchUser(String text) {
 //        List<Account_User> list = new ArrayList<>();
 //        for (Account_User u : getListUser()) {
-//            if (u.getMaKH().toUpperCase().contains(text.toUpperCase()) || u.getTenKH().toUpperCase().contains(text.toUpperCase())|| u.getEmail().toUpperCase().contains(text.toUpperCase())) {
+//            if (u.getMaKH().toUpperCase().contains(text.toUpperCase()) || u.getTenKH().toUpperCase().contains(text.toUpperCase()) || u.getEmail().toUpperCase().contains(text.toUpperCase())) {
 //                list.add(u);
 //            }
 //        }
 //        return list;
 //
 //    }
-//    public  void  contact(String iduser, String content){
+//
+//    public void contact(String iduser, String content) {
 //        JDBiConnector.get().withHandle(handle -> {
-//            return handle.createUpdate("INSERT INTO contact VALUES('"+iduser+"','"+content+"','"+LocalDateTime.now()+"');").execute();
+//            return handle.createUpdate("INSERT INTO contact VALUES('" + iduser + "','" + content + "','" + LocalDateTime.now() + "');").execute();
 //        });
 //    }
 //
 //    public static void main(String[] args) {
-//        UserService.getInstance().changePass("1111111111", "1111111111", "aaa");
-//    }
-//
-//    public  List<Account_User> listCTAccount(String iduser){
-//        return  JDBiConnector.get().withHandle(handle -> {
-//            return handle.createQuery("SELECT u.ID_USER, u.NAME_USER, u.SEX,u.BIRTHDAY, u.PHONE, u.EMAIL, u.ADDRESS, u.PASSW FROM `user` u WHERE u.ID_USER='"+iduser+"'")
-//                    .mapToBean(Account_User.class).collect(Collectors.toList());
-//        });
-//    }
-//
-//    public  static  void updateCtAccount(String iduser, String name, int sex,  String birthday, String email, String phone, String passw, String address, String repassw ){
-//        JDBiConnector.get().withHandle(handle -> {
-//            return handle.createUpdate("UPDATE `user` u set u.NAME_USER='"+name+"', u.SEX= "+sex+",u.BIRTHDAY='"+birthday+"', u.EMAIL='"+email+"', u.PHONE= '"+phone+"', u.PASSW='"+passw+"', u.ADDRESS='"+address+"' WHERE ID_USER='"+iduser+"'").execute();
-//        });
+////        UserService.getInstance().changePass("1111111111", "1111111111", "aaa");
+////    }
+////
+////    public List<Account_User> listCTAccount(String iduser) {
+////        return JDBiConnector.get().withHandle(handle -> {
+////            return handle.createQuery("SELECT u.ID_USER, u.NAME_USER, u.SEX,u.BIRTHDAY, u.PHONE, u.EMAIL, u.ADDRESS, u.PASSW FROM `user` u WHERE u.ID_USER='" + iduser + "'")
+////                    .mapToBean(Account_User.class).collect(Collectors.toList());
+////        });
+////    }
+////
+////    public static void updateCtAccount(String iduser, String name, int sex, String birthday, String email, String phone, String passw, String address, String repassw) {
+////        JDBiConnector.get().withHandle(handle -> {
+////            return handle.createUpdate("UPDATE `user` u set u.NAME_USER='" + name + "', u.SEX= " + sex + ",u.BIRTHDAY='" + birthday + "', u.EMAIL='" + email + "', u.PHONE= '" + phone + "', u.PASSW='" + passw + "', u.ADDRESS='" + address + "' WHERE ID_USER='" + iduser + "'").execute();
+////        });
 //    }
 
 }

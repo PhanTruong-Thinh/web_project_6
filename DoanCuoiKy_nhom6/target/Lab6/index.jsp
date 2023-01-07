@@ -8,6 +8,7 @@
 <body>
 <% Account_User auth= (Account_User) session.getAttribute("auth"); %>
 <% if(auth==null){ %>
+<% response.sendRedirect(request.getContextPath() + "/loginUser"); %>
 <p> Bạn chưa đăng nhập </p>
 <% } else { %>
 <p> Chào bạn :<% auth.getEmail() ;%> </p>

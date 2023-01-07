@@ -1,61 +1,57 @@
 package vn.edu.hcmuaf.fit.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Product implements Serializable {
-    private int id;
+    private String id;
     private String id_DanhMuc;
     private String name;
     private String xuatXu;
     private String img;
 //    private long price;
     private int soLuong;
-    private String trangThai;
-    private double price;
+    private int trangThai;
+    private int price;
 
     public Product() {
     }
 
-    public Product(int id, String name, String img,double price) {
-        this.id = id;
-        this.name = name;
-        this.img = img;
-        this.price = price;
-    }
+//    public Product(int id, String name, String img,double price) {
+//        this.id = id;
+//        this.name = name;
+//        this.img = img;
+//        this.price = price;
+//    }
 
-    public Product(int id, String id_DanhMuc, String name, String xuatXu, String img, double price, int soLuong, String trangThai) {
+    public Product(String id, String id_DanhMuc, String name, String xuatXu, String img, int soLuong, int trangThai, int price) {
         this.id = id;
         this.id_DanhMuc = id_DanhMuc;
         this.name = name;
         this.xuatXu = xuatXu;
         this.img = img;
-        this.price = price;
         this.soLuong = soLuong;
         this.trangThai = trangThai;
+        this.price = price;
     }
 
-    public int getId() {
+//    public Product(int id, String id_DanhMuc, String name, String xuatXu, String img, double price, int soLuong, String trangThai) {
+//        this.id = id;
+//        this.id_DanhMuc = id_DanhMuc;
+//        this.name = name;
+//        this.xuatXu = xuatXu;
+//        this.img = img;
+//        this.price = price;
+//        this.soLuong = soLuong;
+//        this.trangThai = trangThai;
+//    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img;
     }
 
     public String getId_DanhMuc() {
@@ -66,12 +62,28 @@ public class Product implements Serializable {
         this.id_DanhMuc = id_DanhMuc;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getXuatXu() {
         return xuatXu;
     }
 
     public void setXuatXu(String xuatXu) {
         this.xuatXu = xuatXu;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 
     public int getSoLuong() {
@@ -82,20 +94,20 @@ public class Product implements Serializable {
         this.soLuong = soLuong;
     }
 
-    public String getTrangThai() {
+    public int getTrangThai() {
         return trangThai;
     }
 
-    public void setTrangThai(String trangThai) {
+    public void setTrangThai(int trangThai) {
         this.trangThai = trangThai;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
-        this.price=price ;
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     @Override

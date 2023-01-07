@@ -1,25 +1,72 @@
 package vn.edu.hcmuaf.fit.service;
 
-import vn.edu.hcmuaf.fit.db.JDBIConnector;
+import org.jdbi.v3.core.Handle;
+import org.jdbi.v3.core.HandleCallback;
+import vn.edu.hcmuaf.fit.db.JDBiConnector;
+import vn.edu.hcmuaf.fit.db.MySQLConnector;
+import vn.edu.hcmuaf.fit.model.Cart;
 import vn.edu.hcmuaf.fit.model.Product;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class ProductService {
 
+    private static ProductService instance;
+
+    private ProductService() {
+
+    }
+
+    public static ProductService getInstance() {
+        if (instance == null) {
+            instance = new ProductService();
+        }
+        return instance;
+    }
+
+    public static List<Product> getProducts() {
+        List<Product> products = new ArrayList<>();
+        try (var ps = MySQLConnector.getInstance().getPreparedStatement(
+                "select s.Ma_SP,s.MA_DM,s.TenSP,s.XuatSu,s.Img,s.SoLuong,s.TrangThai,g.Gia_Ban " +
+                        "  from san_pham s join gia_sanpham g on s.Ma_SP=g.Ma_SP"
+        )) {
+            assert ps != null;
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                String id = rs.getString("Ma_SP");
+                String id_DanhMuc = rs.getString("MA_DM");
+                String name = rs.getString("TenSP");
+                String xuatXu = rs.getString("XuatSu");
+                String img = rs.getString("Img");
+                int sl = rs.getInt("SoLuong");
+                int trangthai = rs.getInt("TrangThai");
+                int price = rs.getInt("Gia_Ban");
+                products.add(new Product(id, id_DanhMuc, name, xuatXu, img, sl, trangthai, price));
+            }
+            return products;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return new ArrayList<>();
+    }
 
     public static List<Product> getData(){
-       return JDBIConnector.get().withHandle(handle -> {
-            return handle.createQuery("select s.Ma_SP,s.MA_SM,s.TenSP,s.XuatSu,s.Img,s.SoLuong,s.TrangThai,g.Gia_Ban  from san_pham s join gia_sanpham g on s.Ma_SP=g.Ma_SP").mapToBean(Product.class)
+       return JDBiConnector.get().withHandle(handle -> {
+            return handle.createQuery("select s.Ma_SP,s.MA_DM,s.TenSP,s.XuatSu,s.Img,s.SoLuong,s.TrangThai,g.Gia_Ban  " +
+                            "from san_pham s join gia_sanpham g on s.Ma_SP=g.Ma_SP")
+                    .mapToBean(Product.class)
                     .stream().collect(Collectors.toList());
         });
     }
 
     //lay san pham theo id
     public static List<Product> getProductID(String Id){
-        return JDBIConnector.get().withHandle(handle -> {
+        return JDBiConnector.get().withHandle(handle -> {
             return handle.createQuery("select s.Ma_SP,s.MA_SM,s.TenSP,s.XuatSu,s.Img,s.SoLuong,s.TrangThai,g.Gia_Ban  from san_pham s join gia_sanpham g on s.Ma_SP=g.Ma_SP where s.Ma_SP='"+Id+"'").mapToBean(Product.class)
                     .stream().collect(Collectors.toList());
         });
@@ -27,7 +74,7 @@ public class ProductService {
 
     //lay san pham theo danh muc
     public static List<Product> getProductCategory(String IdDM){
-        return JDBIConnector.get().withHandle(handle -> {
+        return JDBiConnector.get().withHandle(handle -> {
             return handle.createQuery("select s.Ma_SP,s.MA_SM,s.TenSP,s.XuatSu,s.Img,s.SoLuong,s.TrangThai,g.Gia_Ban  from san_pham s join gia_sanpham g on s.Ma_SP=g.Ma_SP where s.Ma_DM='"+IdDM+"'").mapToBean(Product.class)
                     .stream().collect(Collectors.toList());
         });
@@ -35,7 +82,7 @@ public class ProductService {
 
     //lay san pham theo gia
     public static List<Product> getProductPrice(double price){
-        return JDBIConnector.get().withHandle(handle -> {
+        return JDBiConnector.get().withHandle(handle -> {
             return handle.createQuery("select s.Ma_SP,s.MA_SM,s.TenSP,s.XuatSu,s.Img,s.SoLuong,s.TrangThai,g.Gia_Ban  from san_pham s join gia_sanpham g on s.Ma_SP=g.Ma_SP where g.Gia_Ban="+price+"").mapToBean(Product.class)
                     .stream().collect(Collectors.toList());
         });
@@ -43,7 +90,7 @@ public class ProductService {
 
     //loc san pham thoe khoan gia
     public static List<Product> getProductBetwenPrice(double min, double max){
-        return JDBIConnector.get().withHandle(handle -> {
+        return JDBiConnector.get().withHandle(handle -> {
             return handle.createQuery("select s.Ma_SP,s.MA_SM,s.TenSP,s.XuatSu,s.Img,s.SoLuong,s.TrangThai,g.Gia_Ban  from san_pham s join gia_sanpham g on s.Ma_SP=g.Ma_SP where g.Gia_Ban between "+min+" and "+max).mapToBean(Product.class)
                     .stream().collect(Collectors.toList());
         });
@@ -52,7 +99,7 @@ public class ProductService {
 
     //lay san pham lien tuong tu
     public List<Product> getRelatedProducts(String id) {
-        return JDBIConnector.get().withHandle(handle -> {
+        return JDBiConnector.get().withHandle(handle -> {
             return handle.createQuery("SELECT s.Ma_SP,s.MA_SM,s.TenSP,s.XuatSu,s.Img,s.SoLuong,s.TrangThai,g.Gia_Ban from san_pham s join gia_sanpham g on s.Ma_SP=g.Ma_SP  where s.Ma_DM in (select Ma_DM from san_pham where Ma_SP='"+id+"')").mapToBean(Product.class).collect(Collectors.toList());
         });
     }
@@ -60,15 +107,14 @@ public class ProductService {
 
     //loc sna pham A-Z
     public static List<Product> getProductAtoZ(){
-        return JDBIConnector.get().withHandle(handle -> {
+        return JDBiConnector.get().withHandle(handle -> {
             return handle.createQuery("select s.Ma_SP,s.MA_SM,s.TenSP,s.XuatSu,s.Img,s.SoLuong,s.TrangThai,g.Gia_Ban  from san_pham s join gia_sanpham g on s.Ma_SP=g.Ma_SP order by s.Ma_SP,s.MA_SM,s.TenSP,s.XuatSu,s.Img,s.SoLuong,s.TrangThai,g.Gia_Ban asc ").mapToBean(Product.class)
                     .stream().collect(Collectors.toList());
         });
     }
-
     //loc san pham tu Z-A
     public static List<Product> getProductZtoA(){
-        return JDBIConnector.get().withHandle(handle -> {
+        return JDBiConnector.get().withHandle(handle -> {
             return handle.createQuery("select s.Ma_SP,s.MA_SM,s.TenSP,s.XuatSu,s.Img,s.SoLuong,s.TrangThai,g.Gia_Ban  from san_pham s join gia_sanpham g on s.Ma_SP=g.Ma_SP order by s.Ma_SP,s.MA_SM,s.TenSP,s.XuatSu,s.Img,s.SoLuong,s.TrangThai,g.Gia_Ban desc ").mapToBean(Product.class)
                     .stream().collect(Collectors.toList());
         });
@@ -76,7 +122,7 @@ public class ProductService {
 
     //loc theo gia tang dan
     public static List<Product> getProductMintoMax(){
-        return JDBIConnector.get().withHandle(handle -> {
+        return JDBiConnector.get().withHandle(handle -> {
             return handle.createQuery("select s.Ma_SP,s.MA_SM,s.TenSP,s.XuatSu,s.Img,s.SoLuong,s.TrangThai,g.Gia_Ban  from san_pham s join gia_sanpham g on s.Ma_SP=g.Ma_SP order by g.Gia_Ban, s.Ma_SP,s.MA_SM,s.TenSP,s.XuatSu,s.Img,s.SoLuong,s.TrangThai asc ").mapToBean(Product.class)
                     .stream().collect(Collectors.toList());
         });
@@ -84,7 +130,7 @@ public class ProductService {
 
     //loc theo gia giam dan
     public static List<Product> getProductMaxtoMin(){
-        return JDBIConnector.get().withHandle(handle -> {
+        return JDBiConnector.get().withHandle(handle -> {
             return handle.createQuery("select s.Ma_SP,s.MA_SM,s.TenSP,s.XuatSu,s.Img,s.SoLuong,s.TrangThai,g.Gia_Ban  from san_pham s join gia_sanpham g on s.Ma_SP=g.Ma_SP order by g.Gia_Ban, s.Ma_SP,s.MA_SM,s.TenSP,s.XuatSu,s.Img,s.SoLuong,s.TrangThai desc ").mapToBean(Product.class)
                     .stream().collect(Collectors.toList());
         });
@@ -103,35 +149,35 @@ public class ProductService {
     public static List<Product> getProductTrangThai(int kind){
         switch (kind) {
             case 1:
-                return JDBIConnector.get().withHandle(handle -> {
+                return JDBiConnector.get().withHandle(handle -> {
                     return handle.createQuery("select s.Ma_SP,s.MA_SM,s.TenSP,s.XuatSu,s.Img,s.SoLuong,s.TrangThai,g.Gia_Ban  from san_pham s join gia_sanpham g on s.Ma_SP=g.Ma_SP where s.TrangThai=1").mapToBean(Product.class).collect(Collectors.toList());
                 });
             case 2:
-                return JDBIConnector.get().withHandle(handle -> {
+                return JDBiConnector.get().withHandle(handle -> {
                     return handle.createQuery("select s.Ma_SP,s.MA_SM,s.TenSP,s.XuatSu,s.Img,s.SoLuong,s.TrangThai,g.Gia_Ban  from san_pham s join gia_sanpham g on s.Ma_SP=g.Ma_SP where s.TrangThai=2").mapToBean(Product.class).collect(Collectors.toList());
                 });
             case 3:
-                return JDBIConnector.get().withHandle(handle -> {
+                return JDBiConnector.get().withHandle(handle -> {
                     return handle.createQuery("select s.Ma_SP,s.MA_SM,s.TenSP,s.XuatSu,s.Img,s.SoLuong,s.TrangThai,g.Gia_Ban  from san_pham s join gia_sanpham g on s.Ma_SP=g.Ma_SP where s.TrangThai=3").mapToBean(Product.class).collect(Collectors.toList());
                 });
             case 4:
-                return JDBIConnector.get().withHandle(handle -> {
+                return JDBiConnector.get().withHandle(handle -> {
                     return handle.createQuery("select s.Ma_SP,s.MA_SM,s.TenSP,s.XuatSu,s.Img,s.SoLuong,s.TrangThai,g.Gia_Ban  from san_pham s join gia_sanpham g on s.Ma_SP=g.Ma_SP where s.TrangThai=4").mapToBean(Product.class).collect(Collectors.toList());
                 });
             case 5:
-                return JDBIConnector.get().withHandle(handle -> {
+                return JDBiConnector.get().withHandle(handle -> {
                     return handle.createQuery("select s.Ma_SP,s.MA_SM,s.TenSP,s.XuatSu,s.Img,s.SoLuong,s.TrangThai,g.Gia_Ban  from san_pham s join gia_sanpham g on s.Ma_SP=g.Ma_SP where s.TrangThai=5").mapToBean(Product.class).collect(Collectors.toList());
                 });
             case 6:
-                return JDBIConnector.get().withHandle(handle -> {
+                return JDBiConnector.get().withHandle(handle -> {
                     return handle.createQuery("select s.Ma_SP,s.MA_SM,s.TenSP,s.XuatSu,s.Img,s.SoLuong,s.TrangThai,g.Gia_Ban  from san_pham s join gia_sanpham g on s.Ma_SP=g.Ma_SP where s.TrangThai=6").mapToBean(Product.class).collect(Collectors.toList());
                 });
             case 7:
-                return JDBIConnector.get().withHandle(handle -> {
+                return JDBiConnector.get().withHandle(handle -> {
                     return handle.createQuery("select s.Ma_SP,s.MA_SM,s.TenSP,s.XuatSu,s.Img,s.SoLuong,s.TrangThai,g.Gia_Ban  from san_pham s join gia_sanpham g on s.Ma_SP=g.Ma_SP where s.TrangThai=7").mapToBean(Product.class).collect(Collectors.toList());
                 });
         }
-        return JDBIConnector.get().withHandle(handle -> {
+        return JDBiConnector.get().withHandle(handle -> {
             return handle.createQuery("select s.Ma_SP,s.MA_SM,s.TenSP,s.XuatSu,s.Img,s.SoLuong,s.TrangThai,g.Gia_Ban  from san_pham s join gia_sanpham g on s.Ma_SP=g.Ma_SP").mapToBean(Product.class).collect(Collectors.toList());
         });
     }
@@ -140,14 +186,14 @@ public class ProductService {
     //them san pham
     public static void addProd(String maSP, String DM, String name, int price,double giaBan, String xuatxu,int tinhtrang,int trangthai,int soluong, String url){
         new PriceService().addPricePro(maSP,price,giaBan);
-        JDBIConnector.get().withHandle(handle -> {
+        JDBiConnector.get().withHandle(handle -> {
             return handle.createUpdate("INSERT INTO `san_pham` VALUES ('"+maSP+"','"+DM+"','"+name+"','"+ xuatxu+ "','"+url+"',"+ LocalDate.now()+","+tinhtrang+","+soluong+","+trangthai+",0)").execute();
         });
     }
 
     //xoa san pham
     public static void deleteProduct(String id){
-        JDBIConnector.get().withHandle(handle -> {
+        JDBiConnector.get().withHandle(handle -> {
             return handle.createUpdate("delete from san_pham where Ma_SP='"+id+"'").execute();
         });
         new PriceService().deletePricePro(id);
@@ -156,7 +202,7 @@ public class ProductService {
 
     //cap nhat san pham
     public  static  void  updatePro(String id,double price,int tinhtrang, int soluong, int trangthai){
-        JDBIConnector.get().withHandle(handle -> {
+        JDBiConnector.get().withHandle(handle -> {
             return handle.createUpdate("update san_pham set TinhTrang="+tinhtrang+", SoLuong="+soluong+",TrangThai="+trangthai+" where Ma_SP='"+"'").execute();
         });
         new PriceService().updatePricePro(id,price);
@@ -164,18 +210,42 @@ public class ProductService {
 
 
     //lay sang pham tu gio hang
-    public  static Integer getProductCart(String maKH){
-        return JDBIConnector.get().withHandle(handle -> {
+    public static Integer getProductCart(String maKH){
+        return JDBiConnector.get().withHandle(handle -> {
             return handle.createUpdate("select s.Ma_SP,s.MA_SM,s.TenSP,s.XuatSu,s.Img,s.SoLuong,s.TrangThai,g.Gia_Ban from san_pham s join gio_hang g on s.Ma_SP=g.Ma_SP where g.Ma_KH='"+maKH+"'").execute();
         });
     }
-    public static void main(String[] args) {
-        String sql="INSERT INTO products VALUES";
-        List<Product> data = getData();
-        for (Product p :  data) {
-            sql+="("+p.getId()+",'"+p.getName()+"','"+p.getImg()+"',"+p.getPrice()+"),";
+
+    public static List<Cart> getCarts(String maKH) {
+        return JDBiConnector.get().withHandle(handle ->
+                handle.createQuery("select Ma_KH, Ma_SP, So_Luong FROM gio_hang WHERE Ma_KH = ?")
+                        .bind(0,maKH)
+                        .mapToBean(Cart.class)
+                .collect(Collectors.toList()));
+    }
+
+    public static void putCart(List<Cart> carts) {
+        for (Cart cart : carts) {
+            JDBiConnector.get().withHandle(handle ->
+                    handle.createUpdate("INSERT INTO gio_hang VALUES (?, ?, ?, 0)")
+                            .bind(0, cart.getMaKH())
+                            .bind(1, cart.getMaSP())
+                            .bind(2, cart.getsL())
+                            .execute());
         }
-        System.out.println(sql);
+    }
+
+    public static void main(String[] args) {
+//        String sql="INSERT INTO products VALUES";
+//        List<Product> data = getData();
+//        for (Product p :  data) {
+//            sql+="("+p.getId()+",'"+p.getName()+"','"+p.getImg()+"',"+p.getPrice()+"),";
+//        }
+//        System.out.println(sql);
+        Cart cart = new Cart("KH01", "SP01", 1);
+        List<Cart> carts = new ArrayList<>();
+        carts.add(cart);
+        putCart(carts);
     }
 
 

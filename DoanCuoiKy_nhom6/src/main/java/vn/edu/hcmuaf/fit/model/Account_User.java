@@ -1,19 +1,18 @@
 package vn.edu.hcmuaf.fit.model;
 
-public class Account_User {
+import java.io.Serializable;
+import java.util.Date;
+
+public class Account_User implements Serializable {
     private String maKH;
 
     private String tenKH;
 
-
-
-
-
     private String email;
-    private int SDT;
-    private String passWord;
+    private String SDT;
+    private String matKhau;
     private int trangThai;
-    private String ngayDK;
+    private Date ngayDK;
 
 
 
@@ -21,12 +20,12 @@ public class Account_User {
     public Account_User() {
     }
 
-    public Account_User(String maKH, String tenKH, String email, int SDT, String passWord, int trangThai, String ngayDK) {
+    public Account_User(String maKH, String tenKH, String email, String sdt, String passw, int trangThai, Date ngayDK) {
         this.maKH = maKH;
         this.tenKH = tenKH;
         this.email = email;
-        this.SDT = SDT;
-        this.passWord = passWord;
+        this.SDT = sdt;
+        this.matKhau = passw;
         this.trangThai = trangThai;
         this.ngayDK = ngayDK;
     }
@@ -55,20 +54,20 @@ public class Account_User {
         this.email = email;
     }
 
-    public int getSDT() {
+    public String getSDT() {
         return SDT;
     }
 
-    public void setSDT(int SDT) {
+    public void setSDT(String SDT) {
         this.SDT = SDT;
     }
 
     public String getPassWord() {
-        return passWord;
+        return matKhau;
     }
 
     public void setPassWord(String passWord) {
-        this.passWord = passWord;
+        this.matKhau = passWord;
     }
 
     public int getTrangThai() {
@@ -79,11 +78,11 @@ public class Account_User {
         this.trangThai = trangThai;
     }
 
-    public String getNgayDK() {
+    public Date getNgayDK() {
         return ngayDK;
     }
 
-    public void setNgayDK(String ngayDK) {
+    public void setNgayDK(Date ngayDK) {
         this.ngayDK = ngayDK;
     }
 
@@ -94,7 +93,7 @@ public class Account_User {
                 ", tenKH='" + tenKH + '\'' +
                 ", email='" + email + '\'' +
                 ", SDT=" + SDT +
-                ", passWord='" + passWord + '\'' +
+                ", passWord='" + matKhau + '\'' +
                 ", trangThai=" + trangThai +
                 ", ngayDK='" + ngayDK + '\'' +
                 '}';

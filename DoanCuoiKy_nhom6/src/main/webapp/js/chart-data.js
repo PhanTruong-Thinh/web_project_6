@@ -2,7 +2,7 @@ var randomScalingFactor = function(){ return Math.round(Math.random()*1000)};
 
 	
 	var lineChartData = {
-		labels : ["Tháng 1","Tháng 2","Tháng 3","Tháng 4","Tháng 5","Tháng 6","Tháng 7","Tháng 8","Tháng 9","Tháng 10","Tháng 11","Tháng 12"],
+		labels : ["January","February","March","April","May","June","July","August","September","October","November","December"],
 		datasets : [
 			{
 				label: "My First dataset",
@@ -12,7 +12,7 @@ var randomScalingFactor = function(){ return Math.round(Math.random()*1000)};
 				pointStrokeColor : "#fff",
 				pointHighlightFill : "#fff",
 				pointHighlightStroke : "rgba(220,220,220,1)",
-				 // data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+				// data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
 			},
 			{
 				label: "My Second dataset",
@@ -29,7 +29,7 @@ var randomScalingFactor = function(){ return Math.round(Math.random()*1000)};
 	}
 
 	var barChartData = {
-		labels : ["Tháng 1","Tháng 2","Tháng 3","Tháng 4","Tháng 5","Tháng 6","Tháng 7","Tháng 8","Tháng 9","Tháng 10","Tháng 11","Tháng 12"],
+		labels : ["January","February","March","April","May","June","July","August","September","October","November","December"],
 		datasets : [
 			{
 				fillColor : "rgba(220,220,220,0.5)",
@@ -51,62 +51,62 @@ var randomScalingFactor = function(){ return Math.round(Math.random()*1000)};
 
 	var pieData = [
 			{
-				value: 10,
+				value: 0,
 				color:"#30a5ff",
 				highlight: "#62b9fb",
-				label: "Quý I"
+				label: "Blue"
 			},
 			{
-				value: 20,
+				value: 0,
 				color: "#ffb53e",
 				highlight: "#fac878",
-				label: "Quý II"
+				label: "Orange"
 			},
 			{
-				value: 30,
+				value: 0,
 				color: "#1ebfae",
 				highlight: "#3cdfce",
-				label: "Quý III"
+				label: "Teal"
 			},
 			{
-				value: 40,
+				value: 0,
 				color: "#f9243f",
 				highlight: "#f6495f",
-				label: "Quý IV"
+				label: "Red"
 			}
 
 		];
 			
 	var doughnutData = [
 				{
-					value: 40,
+					value: 0,
 					color:"#30a5ff",
 					highlight: "#62b9fb",
-					label: "Quý I"
+					label: "Blue"
 				},
 				{
-					value: 10,
+					value: 0,
 					color: "#ffb53e",
 					highlight: "#fac878",
-					label: "Quý II"
+					label: "Orange"
 				},
 				{
-					value: 20,
+					value: 0,
 					color: "#1ebfae",
 					highlight: "#3cdfce",
-					label: "Quý III"
+					label: "Teal"
 				},
 				{
-					value: 30,
+					value: 0,
 					color: "#f9243f",
 					highlight: "#f6495f",
-					label: "Quý IV"
+					label: "Red"
 				}
 
 			];
 
 	var radarData = {
-		labels : ["Tháng 1","Tháng 2","Tháng 3","Tháng 4","Tháng 5","Tháng 6","Tháng 7","Tháng 8","Tháng 9","Tháng 10","Tháng 11","Tháng 12"],
+	    labels: ["Eating", "Drinking", "Sleeping", "Designing", "Coding", "Cycling", "Running"],
 	    datasets: [
 	        {
 	            label: "My First dataset",
@@ -116,7 +116,7 @@ var randomScalingFactor = function(){ return Math.round(Math.random()*1000)};
 	            pointStrokeColor: "#fff",
 	            pointHighlightFill: "#fff",
 	            pointHighlightStroke: "rgba(220,220,220,1)",
-	            data: [10, 10, 5, 15, 5, 10, 5, 10, 5, 10, 5, 10]
+	            data: [0, 0, 0, 0, 0, 0, 0]
 	        },
 	        {
 	            label: "My Second dataset",
@@ -133,34 +133,34 @@ var randomScalingFactor = function(){ return Math.round(Math.random()*1000)};
 	
 	var polarData = [
 		    {
-		    	value: 10,
+		    	value: 0,
 		    	color: "#1ebfae",
 		    	highlight: "#38cabe",
-		    	label: "Quý I"
+		    	label: "Teal"
 		    },
 		    {
-		    	value: 20,
+		    	value: 0,
 		    	color: "#ffb53e",
 		    	highlight: "#fac878",
-		    	label: "Quý II"
+		    	label: "Orange"
 		    },
 		    {
-		    	value: 30,
+		    	value: 0,
 		    	color:"#30a5ff",
 		    	highlight: "#62b9fb",
-		    	label: "Quý III"
+		    	label: "Blue"
 		    },
 		    {
-		    	value: 40,
+		    	value: 0,
 		    	color: "#f9243f",
 		    	highlight: "#f6495f",
-		    	label: "Quý IV"
+		    	label: "Red"
 		    }
 
 	];
 
 	var lineChartData2 = {
-		labels : ["Tháng 1","Tháng 2","Tháng 3","Tháng 4","Tháng 5","Tháng 6","Tháng 7","Tháng 8","Tháng 9","Tháng 10","Tháng 11","Tháng 12"],
+		labels : ["January","February","March","April","May","June","July","August","September","October","November","December"],
 		datasets : [
 			{
 				label: "My First dataset",
@@ -170,7 +170,7 @@ var randomScalingFactor = function(){ return Math.round(Math.random()*1000)};
 				pointStrokeColor : "#fff",
 				pointHighlightFill : "#fff",
 				pointHighlightStroke : "rgba(220,220,220,1)",
-				 // data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+				// data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
 			},
 			{
 				label: "My Second dataset",
