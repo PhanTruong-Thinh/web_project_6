@@ -97,18 +97,4 @@ public class ProductService {
         }
     }
 
-    public static void main(String[] args) {
-//        String sql="INSERT INTO products VALUES";
-//        List<Product> data = getData();
-//        for (Product p :  data) {
-//            sql+="("+p.getId()+",'"+p.getName()+"','"+p.getImg()+"',"+p.getPrice()+"),";
-//        }
-//        System.out.println(sql);
-//        Cart cart = new Cart("KH01", "SP01", 1);
-//        List<Cart> carts = new ArrayList<>();
-//        carts.add(cart);
-//        putCart(carts);
-    }
-
-
 }
