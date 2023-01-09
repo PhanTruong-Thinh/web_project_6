@@ -1,5 +1,5 @@
 <%@ page import="java.util.List" %>
-<%@ page import="vn.edu.hcmuaf.fit.model.Cart" %>
+<%@ page import="vn.edu.hcmuaf.fit.model.CartItem" %>
 <%@ page import="java.text.DecimalFormat" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
@@ -15,7 +15,7 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ogani | Template</title>
+    <title>Giỏ hàng</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
@@ -115,7 +115,7 @@
                     <nav class="header__menu">
                         <ul>
                             <li><a href="${project}/trang-chu">Trang Chủ</a></li>
-                            <li class="active"><a href="${project}/list-product">Mua sắm</a></li>
+                            <li ><a href="${project}/list-product">Mua sắm</a></li>
                             <!-- <li><a href="#">Các Trang</a>
                                 <ul class="header__menu__dropdown">
                                     <li><a href="./shop-details.jsp">Shop Details</a></li>
@@ -124,7 +124,7 @@
                                     <li><a href="./blog-details.jsp">Blog Details</a></li>
                                 </ul>
                             </li> -->
-                            <li><a href="blog.jsp">Blog</a></li>
+                            <li><a href="blog.jsp">Tin tức</a></li>
                             <li><a href="contact.jsp">Liên hệ</a></li>
                         </ul>
                     </nav>
@@ -244,7 +244,7 @@
                                     <td class="shoping__cart__quantity">
                                         <div class="quantity">
                                             <div class="pro-qty">
-                                                <input type="text" value="2">
+                                                <input type="text" value="1">
                                             </div>
                                         </div>
                                     </td>
@@ -272,7 +272,7 @@
                             <h5>Mã giảm giá</h5>
                             <form action="#">
                                 <input type="text" placeholder="Nhập mã giảm giá của bạn ">
-                                <button type="submit" class="site-btn">Nhập mã giảm giá</button>
+                                <button type="submit" class="site-btn">Áp dụng mã giảm giá</button>
                             </form>
                         </div>
                     </div>
@@ -281,7 +281,7 @@
                     <div class="shoping__checkout">
                         <h5>Tổng giỏ hàng</h5>
                         <ul>
-                            <li>Tổng phụ <span>${total_price}đ</span></li>
+                            <li>Tổng tiền hàng <span>${total_price}đ</span></li>
                             <li>Giảm giá <span>0đ</span></li>
                             <li>Tổng <span>${total_price + 0}đ</span></li>
                         </ul>

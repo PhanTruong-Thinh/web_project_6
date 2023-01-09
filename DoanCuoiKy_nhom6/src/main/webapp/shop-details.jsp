@@ -39,7 +39,7 @@
         <div class="humberger__menu__cart">
             <ul>
                 <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>0</span></a></li>
-        
+            </ul>
         </div>
         <div class="humberger__menu__widget">
 

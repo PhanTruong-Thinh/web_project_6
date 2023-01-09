@@ -9,29 +9,6 @@ import java.util.stream.Collectors;
 
 public class PriceService {
 
-
-    //lay gia san pham
-    public static List<PriceProduct> getPricePro(){
-        return JDBiConnector.get().withHandle(handle -> {
-            return handle.createQuery("select Ma_SP,Ngay,Gia_Thuc,Gia_Ban from gia_sanpham").mapToBean(PriceProduct.class).collect(Collectors.toList());
-        });
-    }
-
-    //lay gia san pham theo Ma_SP
-    public static List<PriceProduct> getPriceProID(String id){
-        return JDBiConnector.get().withHandle(handle -> {
-            return handle.createQuery("select Ma_SP,Ngay,Gia_Thuc,Gia_Ban from gia_sanpham where Ma_SP='"+id+"'").mapToBean(PriceProduct.class).collect(Collectors.toList());
-        });
-    }
-
-    //lay gia san pham theo ngay
-    public static List<PriceProduct> getPriceProDate(String date){
-        return JDBiConnector.get().withHandle(handle -> {
-            return handle.createQuery("select Ma_SP,Ngay,Gia_Thuc,Gia_Ban from gia_sanpham where Ngay='"+date+"'").mapToBean(PriceProduct.class).collect(Collectors.toList());
-        });
-    }
-
-
     //them san pham
     public static void addPricePro(String maSP, double price, double giaBan){
         JDBiConnector.get().withHandle(handle -> {

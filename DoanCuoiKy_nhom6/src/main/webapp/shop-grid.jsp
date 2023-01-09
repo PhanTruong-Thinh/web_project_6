@@ -13,7 +13,7 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ogani | Template</title>
+    <title>Mua sắm</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
@@ -72,7 +72,7 @@
                     <li><a href="./blog-details.jsp">Blog Details</a></li>
                 </ul>
             </li> -->
-            <li><a href="blog.jsp">Blog</a></li>
+            <li><a href="blog.jsp">Tin tức</a></li>
             <li><a href="contact.jsp">Liên hệ</a></li>
         </ul>
     </nav>
@@ -122,7 +122,7 @@
                                 <li><a href="./blog-details.jsp">Blog Details</a></li>
                             </ul>
                         </li> -->
-                        <li><a href="blog.jsp">Blog</a></li>
+                        <li><a href="blog.jsp">Tin tức</a></li>
                         <li><a href="contact.jsp">Liên hệ</a></li>
                     </ul>
                 </nav>
@@ -312,15 +312,14 @@
                                         <div class="product__discount__item__pic set-bg"
                                              data-setbg="${project}/${p.img}">
                                             <div class="product__discount__percent">-20%</div>
-                                            <ul class="product__item__pic__hover">
-                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                            <ul class="product__item__pic__hover"/>
+<%--                                            --%>
                                                 <li><a href="${project}/cart?id=${p.id}&quantity=1"><i class="fa fa-shopping-cart"></i></a></li>
                                             </ul>
                                         </div>
                                         <div class="product__discount__item__text">
-                                            <h5><a href="#">${p.name}</a></h5>
-                                            <div class="product__item__price">${p.price}>đ<span>${p.price}đ</span></div>
+                                            <h5><a href="shop-grid.jsp">${p.name}</a></h5>
+                                            <div class="product__item__price">${p.price}đ<span>${p.price}đ</span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -362,7 +361,7 @@
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="#">${p.name}</a></h6>
+                                    <h6><a href="shop-details.jsp">${p.name}</a></h6>
                                     <h5>${p.price}đ/kg</h5>
                                 </div>
                             </div>

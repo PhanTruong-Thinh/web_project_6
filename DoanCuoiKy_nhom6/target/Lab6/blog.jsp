@@ -56,7 +56,7 @@
                     <li><a href="./blog-details.jsp">Blog Details</a></li>
                 </ul>
             </li> -->
-            <li class="active"><a href="./blog.jsp">Blog</a></li>
+            <li class="active"><a href="./blog.jsp">Tin tức</a></li>
             <li><a href="contact.jsp">Contact</a></li>
         </ul>
     </nav>
@@ -88,7 +88,7 @@
                         <li ><a href="./home.jsp">Trang chủ</a></li>
                         <li><a href="./shop-grid.jsp">Mua sắm</a></li>
                         
-                        <li class="active"><a href="./blog.jsp">Blog</a></li>
+                        <li class="active"><a href="./blog.jsp">Tin tức</a></li>
                         <li><a href="contact.jsp">Liên hệ</a></li>
                     </ul>
 

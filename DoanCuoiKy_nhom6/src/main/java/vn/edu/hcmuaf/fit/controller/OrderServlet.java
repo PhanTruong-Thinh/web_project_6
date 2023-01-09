@@ -1,6 +1,6 @@
 package vn.edu.hcmuaf.fit.controller;
 
-import vn.edu.hcmuaf.fit.model.Cart;
+import vn.edu.hcmuaf.fit.model.CartItem;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,7 +16,7 @@ public class OrderServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         @SuppressWarnings("unchecked")
-        List<Cart> carts = (List<Cart>) req.getSession().getAttribute("carts");
+        List<CartItem> carts = (List<CartItem>) req.getSession().getAttribute("carts");
         String address = req.getParameter("address");
 
     }

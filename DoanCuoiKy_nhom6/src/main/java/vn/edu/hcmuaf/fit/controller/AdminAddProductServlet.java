@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import java.io.File;
 import java.io.IOException;
+import java.util.UUID;
+import java.util.concurrent.ThreadLocalRandom;
 
 @MultipartConfig(fileSizeThreshold = 1024 * 1024,
         maxFileSize = 1024 * 1024 * 5,
@@ -30,14 +32,14 @@ public class AdminAddProductServlet extends HttpServlet {
 
         Part filePart = req.getPart("img");
         String filename = filePart.getSubmittedFileName();
-        
+
         for (Part part : req.getParts()) {
             part.write("D:\\" + filename);
         }
 
         String tinhtrang = req.getParameter("tinhtrang");
         String motasp = req.getParameter("motasp");
-        ProductService.addProduct("SP31", danhmuc, tenSp, xuatsu, img, Integer.parseInt(tinhtrang), 100, 1);
+        ProductService.addProduct("SP" + ThreadLocalRandom.current().nextInt(32, 99 + 1), danhmuc, tenSp, xuatsu, img, Integer.parseInt(tinhtrang), 100, 1);
         req.getRequestDispatcher("add_product_admin.jsp").forward(req, resp);
     }
 }

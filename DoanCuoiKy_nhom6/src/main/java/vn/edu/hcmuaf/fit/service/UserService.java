@@ -48,13 +48,7 @@ public class UserService {
         Account_User user = users.get(0);
         if (user != null)
         return user;
-//        System.out.print(user.getTenKH()+user.getMaKH()+user.getTrangThai());
-//        System.out.print(user.getPassWord());
-//        System.out.print(user.getEmail());
-//        System.out.print(user.getSDT());
-//        if ( user.getEmail().equals(username) || user.getPassWord().equals(password)) {
-//            return user;
-//        }
+
 
         return null;
 

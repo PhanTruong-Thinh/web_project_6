@@ -123,7 +123,16 @@
                     </ul>
                 </nav>
             </div>
-           
+            <div class="col-lg-3">
+                <div class="header__cart">
+                    <ul>
+                        <li><a href="<%=request.getContextPath()%>/cart-page"><i class="fa fa-shopping-bag"></i> <span>0</span></a></li>
+                    </ul>
+                    <div class="header__top__right__auth">
+                        <a href="login_home.jsp"><i class="fa fa-user"></i> Đăng nhập</a>
+                    </div>
+                </div>
+            </div>
             
         <div class="humberger__open">
             <i class="fa fa-bars"></i>

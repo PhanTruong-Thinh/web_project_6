@@ -64,15 +64,7 @@
         <ul>
             <li class="active"><a href="./index.html">Home</a></li>
             <li><a href="shop-grid.jsp">Shop</a></li>
-            <!-- <li><a href="#">Pages</a>
-                <ul class="header__menu__dropdown">
-                    <li><a href="./shop-details.jsp">Shop Details</a></li>
-                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                    <li><a href="./checkout.jsp">Check Out</a></li>
-                    <li><a href="./blog-details.jsp">Blog Details</a></li>
-                </ul>
-            </li> -->
-            <li><a href="blog.jsp">Blog</a></li>
+            <li><a href="blog.jsp">Tin tức</a></li>
             <li><a href="contact.jsp">Contact</a></li>
         </ul>
     </nav>
@@ -112,8 +104,8 @@
             <div class="col-lg-6">
                 <nav class="header__menu">
                     <ul>
-                        <li><a href="${project}/trang-chu">Trang Chủ</a></li>
-                        <li class="active"><a href="${project}/list-product">Mua sắm</a></li>
+                        <li class="active"><a href="${project}/trang-chu">Trang Chủ</a></li>
+                        <li ><a href="${project}/list-product">Mua sắm</a></li>
                         <!-- <li><a href="#">Các Trang</a>
                             <ul class="header__menu__dropdown">
                                 <li><a href="./shop-details.jsp">Shop Details</a></li>
@@ -122,7 +114,7 @@
                                 <li><a href="./blog-details.jsp">Blog Details</a></li>
                             </ul>
                         </li> -->
-                        <li><a href="blog.jsp">Blog</a></li>
+                        <li><a href="blog.jsp">Tin tức</a></li>
                         <li><a href="contact.jsp">Liên hệ</a></li>
                     </ul>
                 </nav>
@@ -160,7 +152,7 @@
                         <li><a href="#"> Tôm </a></li>
                         <li><a href="#"> Cua </a></li>
                         <li><a href="#">Ngêu </a></li>
-                        <li><a href="#">ốc </a></li>
+                        <li><a href="#">Ốc </a></li>
                         <li><a href="#">Sò</a></li>
                         <li><a href="#">Bạch tuột</a></li>
                         <li><a href="#">Các loại khác </a></li>
@@ -259,9 +251,7 @@
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="${project}/${p.img}">
                             <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li class="li-cart" data-id="${p.id}"><a ><i class="fa fa-shopping-cart"></i></a></li>
+                                <li class="li-cart" ><a href="${project}/cart?id=${p.id}&quantity=1"><i class="fa fa-shopping-cart"></i></a></li>
                             </ul>
                         </div>
                         <div class="featured__item__text">
@@ -302,9 +292,10 @@
         <div class="row">
 
             <div class="col-lg-4 col-md-6">
-                <c:forEach var="p" items="${requestScope.list}">
+
                     <div class="latest-product__text">
                         <h4>Sản phẩm mới nhất</h4>
+                        <c:forEach var="p" items="${requestScope.list}">
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
                                 <a href="#" class="latest-product__item">
@@ -319,13 +310,15 @@
 
                             </div>
                         </div>
+                        </c:forEach>
                     </div>
-                </c:forEach>
+
             </div>
             <div class="col-lg-4 col-md-6">
-                <c:forEach var="p" items="${requestScope.list}">
+
                     <div class="latest-product__text">
                         <h4>Đánh giá sản phẩm</h4>
+                        <c:forEach var="p" items="${requestScope.list}">
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
                                 <a href="#" class="latest-product__item">
@@ -339,8 +332,9 @@
                                 </a>
                             </div>
                         </div>
+                        </c:forEach>
                     </div>
-                </c:forEach>
+
             </div>
         </div>
     </div>
