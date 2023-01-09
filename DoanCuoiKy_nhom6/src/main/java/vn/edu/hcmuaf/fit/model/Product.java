@@ -6,7 +6,6 @@ import java.util.Date;
 public class Product implements Serializable {
     private String id;
     private String id_DanhMuc;
-
     private String tenDM;
     private String name;
     private String xuatXu;
@@ -21,13 +20,6 @@ public class Product implements Serializable {
     public Product() {
     }
 
-//    public Product(int id, String name, String img,double price) {
-//        this.id = id;
-//        this.name = name;
-//        this.img = img;
-//        this.price = price;
-//    }
-
     public Product(String id, String id_DanhMuc, String tenDM, String name, String xuatXu, String img, int soLuong, Date ngayD, int trangThai, int price) {
         this.id = id;
         this.id_DanhMuc = id_DanhMuc;
@@ -40,17 +32,6 @@ public class Product implements Serializable {
         this.trangThai = trangThai;
         this.price = price;
     }
-
-//    public Product(int id, String id_DanhMuc, String name, String xuatXu, String img, double price, int soLuong, String trangThai) {
-//        this.id = id;
-//        this.id_DanhMuc = id_DanhMuc;
-//        this.name = name;
-//        this.xuatXu = xuatXu;
-//        this.img = img;
-//        this.price = price;
-//        this.soLuong = soLuong;
-//        this.trangThai = trangThai;
-//    }
 
     public String getId() {
         return id;
