@@ -89,18 +89,4 @@ public class Order implements Serializable {
     public void setSumPrice(double sumPrice) {
         this.sumPrice = sumPrice;
     }
-
-    @Override
-    public String toString() {
-        return "Order{" +
-                "idOrder='" + idOrder + '\'' +
-                ", idKH='" + idKH + '\'' +
-                ", name='" + name + '\'' +
-                ", phone='" + phone + '\'' +
-                ", address='" + address + '\'' +
-                ", price=" + price +
-                ", giaKM=" + giaKM +
-                ", sumPrice=" + sumPrice +
-                '}';
-    }
 }

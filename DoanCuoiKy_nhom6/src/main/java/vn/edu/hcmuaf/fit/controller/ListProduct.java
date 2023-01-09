@@ -17,9 +17,4 @@ public class ListProduct extends HttpServlet {
         request.setAttribute("list",list);
         request.getRequestDispatcher("shop-grid.jsp").forward(request,response);
     }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
 }

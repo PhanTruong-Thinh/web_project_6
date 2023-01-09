@@ -8,9 +8,6 @@ import java.util.stream.Collectors;
 
 public class AccAdminService {
     private static AccAdminService instance;
-
-
-
     private AccAdminService() {
 
     }
@@ -39,27 +36,5 @@ public class AccAdminService {
             return user;
         }
         return null;
-    }
-
-
-    //them tai khoan admin
-    public  static void addAccountAdmin(String id,String name, String email, String pass, String vaitro){
-        JDBiConnector.get().withHandle(handle -> {
-            return handle.createUpdate("insert into tk_quantri values ('"+id+"','"+name+"','"+email+"','"+pass+"',0,'"+vaitro+"')").execute();
-        });
-    }
-
-    //cap nhat vai tro
-    public  static void updateVaiTroAccountAdmin( String vaitro){
-        JDBiConnector.get().withHandle(handle -> {
-            return handle.createUpdate("UPDATE tk_nguoidung set Vai_tro =  '"+vaitro+"'").execute();
-        });
-    }
-
-    //get list tai khoan admin
-    public static Integer getAccountAdmin(){
-       return JDBiConnector.get().withHandle(handle -> {
-            return handle.createUpdate("select Ma_Admin,Ten,Email,Password,Trang_Thai,Vai_tro from tk_quantri").execute();
-        });
     }
 }

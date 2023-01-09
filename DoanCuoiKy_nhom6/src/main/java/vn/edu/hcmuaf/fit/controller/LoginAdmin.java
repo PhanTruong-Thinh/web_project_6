@@ -1,7 +1,6 @@
 package vn.edu.hcmuaf.fit.controller;
 
 
-import vn.edu.hcmuaf.fit.model.Account_User;
 import vn.edu.hcmuaf.fit.model.Accout_Admin;
 import vn.edu.hcmuaf.fit.service.AccAdminService;
 
