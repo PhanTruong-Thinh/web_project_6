@@ -1,16 +1,16 @@
 package vn.edu.hcmuaf.fit.service;
 
-import org.jdbi.v3.core.Handle;
-import org.jdbi.v3.core.HandleCallback;
 import vn.edu.hcmuaf.fit.db.JDBiConnector;
 import vn.edu.hcmuaf.fit.db.MySQLConnector;
 import vn.edu.hcmuaf.fit.model.Cart;
 import vn.edu.hcmuaf.fit.model.Product;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -32,21 +32,24 @@ public class ProductService {
     public static List<Product> getProducts() {
         List<Product> products = new ArrayList<>();
         try (var ps = MySQLConnector.getInstance().getPreparedStatement(
-                "select s.Ma_SP,s.MA_DM,s.TenSP,s.XuatSu,s.Img,s.SoLuong,s.TrangThai,g.Gia_Ban " +
-                        "  from san_pham s join gia_sanpham g on s.Ma_SP=g.Ma_SP"
+                "select s.Ngay_D ,s.Ma_SP,s.MA_DM,s.TenSP,s.XuatSu,s.Img,s.SoLuong,s.TrangThai,g.Gia_Ban, d.Ten_DM " +
+                        "  from san_pham s join gia_sanpham g on s.Ma_SP=g.Ma_SP " +
+                        "JOIN danh_muc d ON d.MA_DM = s.Ma_DM"
         )) {
             assert ps != null;
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 String id = rs.getString("Ma_SP");
                 String id_DanhMuc = rs.getString("MA_DM");
+                String tenDM = rs.getString("Ten_DM");
                 String name = rs.getString("TenSP");
                 String xuatXu = rs.getString("XuatSu");
                 String img = rs.getString("Img");
                 int sl = rs.getInt("SoLuong");
+                Date ngayD = rs.getDate("Ngay_D");
                 int trangthai = rs.getInt("TrangThai");
                 int price = rs.getInt("Gia_Ban");
-                products.add(new Product(id, id_DanhMuc, name, xuatXu, img, sl, trangthai, price));
+                products.add(new Product(id, id_DanhMuc, tenDM, name, xuatXu, img, sl, ngayD, trangthai, price));
             }
             return products;
         } catch (SQLException e) {
@@ -235,6 +238,25 @@ public class ProductService {
         }
     }
 
+    public static void addProduct(String maSP, String maDM, String tenSP, String xuatSu, String img, int tinhTrang, int soluong, int danhGia) {
+        try {
+            PreparedStatement ps = MySQLConnector.getInstance().getPreparedStatement(
+                    "INSERT INTO san_pham VALUES (?,?,?,?,?,NOW(),?,?,1,?)"
+            );
+            ps.setString(1, maSP);
+            ps.setString(2, maDM);
+            ps.setString(3, tenSP);
+            ps.setString(4, xuatSu);
+            ps.setString(5, img);
+            ps.setInt(6, tinhTrang);
+            ps.setInt(7, soluong);
+            ps.setInt(8, danhGia);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
 //        String sql="INSERT INTO products VALUES";
 //        List<Product> data = getData();
@@ -242,10 +264,10 @@ public class ProductService {
 //            sql+="("+p.getId()+",'"+p.getName()+"','"+p.getImg()+"',"+p.getPrice()+"),";
 //        }
 //        System.out.println(sql);
-        Cart cart = new Cart("KH01", "SP01", 1);
-        List<Cart> carts = new ArrayList<>();
-        carts.add(cart);
-        putCart(carts);
+//        Cart cart = new Cart("KH01", "SP01", 1);
+//        List<Cart> carts = new ArrayList<>();
+//        carts.add(cart);
+//        putCart(carts);
     }
 
 

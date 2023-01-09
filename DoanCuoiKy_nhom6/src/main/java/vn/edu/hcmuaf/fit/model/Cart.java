@@ -6,14 +6,22 @@ public class Cart implements Serializable {
     private String maKH;
     private String maSP;
     private String nameSP;
-    private int sL;
+
     private String url;
+    private int sL;
     private double dongia;
     private double thanhTien;
 
     public Cart() {}
 
-    public Cart(String maKH, String maSP, String nameSP, int sL, String url, double dongia, double thanhTien) {
+
+
+    public Cart(String maKH, String maSP, int sL) {
+        this.maKH = maKH;
+        this.maSP = maSP;
+        this.sL = sL;
+    }
+    public Cart(String maKH, String maSP, String nameSP, String url, int sL, double dongia, double thanhTien) {
         this.maKH = maKH;
         this.maSP = maSP;
         this.nameSP = nameSP;
@@ -22,7 +30,6 @@ public class Cart implements Serializable {
         this.dongia = dongia;
         this.thanhTien = thanhTien;
     }
-
     public String getMaKH() {
         return maKH;
     }
@@ -37,6 +44,14 @@ public class Cart implements Serializable {
 
     public void setMaSP(String maSP) {
         this.maSP = maSP;
+    }
+
+    public String getNameSP() {
+        return nameSP;
+    }
+
+    public void setNameSP(String nameSP) {
+        this.nameSP = nameSP;
     }
 
     public int getsL() {
@@ -69,14 +84,6 @@ public class Cart implements Serializable {
 
     public void setThanhTien(double thanhTien) {
         this.thanhTien = thanhTien;
-    }
-
-    public String getNameSP() {
-        return nameSP;
-    }
-
-    public void setNameSP(String nameSP) {
-        this.nameSP = nameSP;
     }
 
     @Override

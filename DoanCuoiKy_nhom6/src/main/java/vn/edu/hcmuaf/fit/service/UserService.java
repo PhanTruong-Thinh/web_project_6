@@ -35,7 +35,8 @@ public class UserService {
 ////=======//
     public Account_User checkLogin(String username, String password){
          List<Account_User> users= JDBiConnector.get().withHandle(h->
-                        h.createQuery("SELECT Ma_KH,TenKH,Email,So_ĐT,Mat_Khau,TrangThai,Ngay_ĐK FROM tk_nguoidung WHERE  Email=? AND Mat_Khau=?")
+                        h.createQuery("SELECT Ma_KH,TenKH,Email,So_DT,Mat_Khau,TrangThai,Ngay_DK " +
+                                        "FROM tk_nguoidung WHERE  Email=? AND Mat_Khau=?")
                                 .bind(0,username).bind(1, password)
                                 .mapToBean(Account_User.class)
                                 .stream().collect(Collectors.toList()));
@@ -45,13 +46,15 @@ public class UserService {
         if (users.size() != 1) return null;
 
         Account_User user = users.get(0);
-        System.out.print(user.getTenKH()+user.getMaKH()+user.getTrangThai());
-        System.out.print(user.getPassWord());
-        System.out.print(user.getEmail());
-        System.out.print(user.getSDT());
-        if ( user.getEmail().equals(username) || user.getPassWord().equals(password)) {
-            return user;
-        }
+        if (user != null)
+        return user;
+//        System.out.print(user.getTenKH()+user.getMaKH()+user.getTrangThai());
+//        System.out.print(user.getPassWord());
+//        System.out.print(user.getEmail());
+//        System.out.print(user.getSDT());
+//        if ( user.getEmail().equals(username) || user.getPassWord().equals(password)) {
+//            return user;
+//        }
 
         return null;
 
@@ -60,7 +63,7 @@ public class UserService {
 
     public static void main(String[] args) {
         UserService userService = new UserService();
-        System.out.println(userService.checkLogin("trantrungtin012356@gmail.com","PW123"));
+        System.out.println(userService.checkLogin("trantrungtin012356@gmail.com","123").getSdt());
     }
 
     public String hashPassword(String password) {

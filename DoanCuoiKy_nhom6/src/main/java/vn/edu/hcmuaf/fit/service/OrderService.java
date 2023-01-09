@@ -1,8 +1,12 @@
 package vn.edu.hcmuaf.fit.service;
 
 import vn.edu.hcmuaf.fit.db.JDBiConnector;
+import vn.edu.hcmuaf.fit.db.MySQLConnector;
+import vn.edu.hcmuaf.fit.model.Cart;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.List;
 
 public class OrderService {
 
@@ -27,5 +31,15 @@ public class OrderService {
         JDBiConnector.get().withHandle(handle -> {
             return handle.createUpdate("update don_dat_hang set Dia_Chi='"+address+"', So_DT='"+phone+"' where Ma_DDH='"+id+"'").execute();
         });
+    }
+
+    public static void order(List<Cart> carts) {
+        try (var ps = MySQLConnector.getInstance().getPreparedStatement(
+                ""
+        )) {
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

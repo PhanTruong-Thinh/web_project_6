@@ -6,11 +6,15 @@ import java.util.Date;
 public class Product implements Serializable {
     private String id;
     private String id_DanhMuc;
+
+    private String tenDM;
     private String name;
     private String xuatXu;
     private String img;
 //    private long price;
     private int soLuong;
+
+    private Date ngayD;
     private int trangThai;
     private int price;
 
@@ -24,13 +28,15 @@ public class Product implements Serializable {
 //        this.price = price;
 //    }
 
-    public Product(String id, String id_DanhMuc, String name, String xuatXu, String img, int soLuong, int trangThai, int price) {
+    public Product(String id, String id_DanhMuc, String tenDM, String name, String xuatXu, String img, int soLuong, Date ngayD, int trangThai, int price) {
         this.id = id;
         this.id_DanhMuc = id_DanhMuc;
+        this.tenDM = tenDM;
         this.name = name;
         this.xuatXu = xuatXu;
         this.img = img;
         this.soLuong = soLuong;
+        this.ngayD = ngayD;
         this.trangThai = trangThai;
         this.price = price;
     }
@@ -118,5 +124,21 @@ public class Product implements Serializable {
                 ", img='" + img + '\'' +
                 ", price=" + price +
                 '}';
+    }
+
+    public String getTenDM() {
+        return tenDM;
+    }
+
+    public void setTenDM(String tenDM) {
+        this.tenDM = tenDM;
+    }
+
+    public Date getNgayD() {
+        return ngayD;
+    }
+
+    public void setNgayD(Date ngayD) {
+        this.ngayD = ngayD;
     }
 }

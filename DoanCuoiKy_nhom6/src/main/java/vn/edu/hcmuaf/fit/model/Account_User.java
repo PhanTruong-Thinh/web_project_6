@@ -9,7 +9,7 @@ public class Account_User implements Serializable {
     private String tenKH;
 
     private String email;
-    private String SDT;
+    private String sdt;
     private String matKhau;
     private int trangThai;
     private Date ngayDK;
@@ -20,12 +20,12 @@ public class Account_User implements Serializable {
     public Account_User() {
     }
 
-    public Account_User(String maKH, String tenKH, String email, String sdt, String passw, int trangThai, Date ngayDK) {
+    public Account_User(String maKH, String tenKH, String email, String sdt, String matKhau, int trangThai, Date ngayDK) {
         this.maKH = maKH;
         this.tenKH = tenKH;
         this.email = email;
-        this.SDT = sdt;
-        this.matKhau = passw;
+        this.sdt = sdt;
+        this.matKhau = matKhau;
         this.trangThai = trangThai;
         this.ngayDK = ngayDK;
     }
@@ -54,20 +54,20 @@ public class Account_User implements Serializable {
         this.email = email;
     }
 
-    public String getSDT() {
-        return SDT;
+    public String getSdt() {
+        return sdt;
     }
 
-    public void setSDT(String SDT) {
-        this.SDT = SDT;
+    public void setSdt(String sdt) {
+        this.sdt = sdt;
     }
 
-    public String getPassWord() {
+    public String getMatKhau() {
         return matKhau;
     }
 
-    public void setPassWord(String passWord) {
-        this.matKhau = passWord;
+    public void setMatKhau(String matKhau) {
+        this.matKhau = matKhau;
     }
 
     public int getTrangThai() {
@@ -92,7 +92,7 @@ public class Account_User implements Serializable {
                 "maKH='" + maKH + '\'' +
                 ", tenKH='" + tenKH + '\'' +
                 ", email='" + email + '\'' +
-                ", SDT=" + SDT +
+                ", SDT=" + sdt +
                 ", passWord='" + matKhau + '\'' +
                 ", trangThai=" + trangThai +
                 ", ngayDK='" + ngayDK + '\'' +

@@ -17,8 +17,6 @@
 </head>
 <body>
 <!--header start here-->
-<% String error= (String) request.getAttribute("error");
-%>
 <div class="header">
 		<div class="header-main">
 
@@ -32,11 +30,6 @@
 						<input name="username" type="text">
 						 <input name="password" type="password">
 
-<%--						<input type="text"  value="Tên Đăng Nhập" name="text" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Tên Đăng Nhập';}"--%>
-<%--							   required value="<%=request.getParameter("text")!=null?request.getParameter("text"):""%>"--%>
-<%--						/>--%>
-<%--					<input type="password"  value="Mật Khẩu" name="password" onfocus="this.value ='';" onblur="if (this.value == '') {this.value = 'Mật Khẩu';}"--%>
-<%--						    required value="<%=request.getParameter("password")!=null?request.getParameter("password"):""%>"/>--%>
 						<div class="remember">
 			             <span class="checkbox1">
 							   <label class="checkbox"><input type="checkbox" name="" checked=""><i> </i>Nhớ tôi</label>
@@ -47,13 +40,14 @@
 						<div class="clear"> </div>
 					  </div>
 						 <input type="submit" value="Đăng Nhập">
-					</form>	
+					</form>
+						<div><a href="<%=request.getContextPath()%>/loginAdmin">Login bằng Admin</a></div>
 <%--					<form action="">--%>
 <%--						<input type="submit" value="Đăng Nhập">--%>
 <%--					</form>--%>
 					<div class="header-left-top">
 						<div class="sign-up"> <h2>Hoặc</h2> </div>
-					
+
 					</div>
 					<div class="header-social wthree">
 							<a href="#" class="face"><h5>Facebook</h5></a>
@@ -67,7 +61,7 @@
 		</div>
 </div>
 <div class="sign">
-	<h3><a href="signup.html">Đăng ký</a></h3>
+	<h3><a href="signup.jsp">Đăng ký</a></h3>
 </div>
 <!--header end here-->
 

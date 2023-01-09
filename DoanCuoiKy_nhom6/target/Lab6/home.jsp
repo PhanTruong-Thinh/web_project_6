@@ -66,14 +66,14 @@
             <li><a href="shop-grid.jsp">Shop</a></li>
             <!-- <li><a href="#">Pages</a>
                 <ul class="header__menu__dropdown">
-                    <li><a href="./shop-details.html">Shop Details</a></li>
+                    <li><a href="./shop-details.jsp">Shop Details</a></li>
                     <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                    <li><a href="./checkout.html">Check Out</a></li>
-                    <li><a href="./blog-details.html">Blog Details</a></li>
+                    <li><a href="./checkout.jsp">Check Out</a></li>
+                    <li><a href="./blog-details.jsp">Blog Details</a></li>
                 </ul>
             </li> -->
-            <li><a href="./blog.html">Blog</a></li>
-            <li><a href="./contact.html">Contact</a></li>
+            <li><a href="blog.jsp">Blog</a></li>
+            <li><a href="contact.jsp">Contact</a></li>
         </ul>
     </nav>
     <div id="mobile-menu-wrap"></div>
@@ -101,6 +101,7 @@
             </div>
         </div>
     </div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
@@ -111,28 +112,28 @@
             <div class="col-lg-6">
                 <nav class="header__menu">
                     <ul>
-                        <li class="active"><a href="./index.html">Trang chủ</a></li>
-                        <li><a href="${project}/list-product">Mua sắm</a></li>
-                        <!-- <li><a href="#">Các trang</a>
+                        <li><a href="${project}/trang-chu">Trang Chủ</a></li>
+                        <li class="active"><a href="${project}/list-product">Mua sắm</a></li>
+                        <!-- <li><a href="#">Các Trang</a>
                             <ul class="header__menu__dropdown">
-                                <li><a href="./shop-details.html">Shop Details</a></li>
+                                <li><a href="./shop-details.jsp">Shop Details</a></li>
                                 <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                                <li><a href="./checkout.html">Check Out</a></li>
-                                <li><a href="./blog-details.html">Blog Details</a></li>
+                                <li><a href="./checkout.jsp">Check Out</a></li>
+                                <li><a href="./blog-details.jsp">Blog Details</a></li>
                             </ul>
                         </li> -->
-                        <li><a href="./blog.html">Blog</a></li>
-                        <li><a href="./contact.html">Liên hệ</a></li>
+                        <li><a href="blog.jsp">Blog</a></li>
+                        <li><a href="contact.jsp">Liên hệ</a></li>
                     </ul>
                 </nav>
             </div>
             <div class="col-lg-3">
                 <div class="header__cart">
                     <ul>
-                        <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>0</span></a></li>
+                        <li><a href="<%=request.getContextPath()%>/cart-page"><i class="fa fa-shopping-bag"></i> <span>0</span></a></li>
                     </ul>
                     <div class="header__top__right__auth">
-                        <a href="#"><i class="fa fa-user"></i>Đăng nhập</a>
+                        <a href="login_home.jsp"><i class="fa fa-user"></i> Đăng nhập</a>
                     </div>
                 </div>
             </div>

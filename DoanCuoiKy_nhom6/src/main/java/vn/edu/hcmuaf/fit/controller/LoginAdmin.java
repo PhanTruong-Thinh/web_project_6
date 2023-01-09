@@ -27,8 +27,8 @@ public class LoginAdmin  extends HomeServlet{
 
         Accout_Admin user2 = AccAdminService.getInstance().checkLogin(username2, password2);
         if (user2 != null) {
-            request.getSession(true).setAttribute("auth", user2);
-            response.sendRedirect(request.getContextPath() + "/trang-admin");
+            request.getSession(true).setAttribute("auth_admin", user2);
+            request.getRequestDispatcher("admin.jsp").forward(request, response);
         } else {
             response.sendRedirect(request.getContextPath() + "/loginAdmin");
         }
